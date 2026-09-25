@@ -1,0 +1,674 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Iniciar Sesión - Madrid Conecta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#dbe4ed",
+            "surface-container": "#e6eff8",
+            "primary-container": "#d63342",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#fff8f7",
+            "primary-fixed-dim": "#ffb3b2",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#e3bebd",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#5a4040",
+            "on-tertiary-container": "#ebffe8",
+            "on-secondary-fixed": "#001d34",
+            "inverse-surface": "#293138",
+            "surface": "#f6faff",
+            "tertiary": "#446147",
+            "tertiary-fixed": "#caebc9",
+            "primary": "#b3152d",
+            "secondary": "#426180",
+            "on-primary-fixed": "#410008",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#aecfae",
+            "on-tertiary-fixed": "#05210c",
+            "surface-container-lowest": "#ffffff",
+            "background": "#f6faff",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#41607f",
+            "surface-container-low": "#ecf5fe",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#aac9ee",
+            "outline": "#8f706f",
+            "surface-bright": "#f6faff",
+            "surface-container-highest": "#dbe4ed",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#5c7a5e",
+            "on-secondary-fixed-variant": "#294967",
+            "surface-tint": "#b91b30",
+            "inverse-primary": "#ffb3b2",
+            "secondary-fixed": "#cfe5ff",
+            "surface-dim": "#d2dbe4",
+            "secondary-container": "#badaff",
+            "on-background": "#141d23",
+            "surface-container-high": "#e0e9f2",
+            "primary-fixed": "#ffdad9",
+            "on-primary-fixed-variant": "#92001e",
+            "inverse-on-surface": "#e9f2fb",
+            "on-surface": "#141d23",
+            "on-tertiary-fixed-variant": "#314d34",
+            "madrid-red": "#D6001C",
+            "madrid-crimson": "#B80018",
+            "madrid-deep": "#8F0012"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* Floating ambient animated spheres */
+    @keyframes floatOrb1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(25px, -35px) scale(1.15); }
+    }
+    @keyframes floatOrb2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 25px) scale(1.2); }
+    }
+    @keyframes floatOrb3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, 30px) scale(0.9); }
+    }
+    @keyframes floatOrb4 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-25px, -25px) scale(1.12); }
+    }
+    @keyframes floatOrb5 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(15px, -20px) scale(1.08); }
+    }
+
+    .animate-orb-1 { animation: floatOrb1 7.5s ease-in-out infinite; }
+    .animate-orb-2 { animation: floatOrb2 9.5s ease-in-out infinite; }
+    .animate-orb-3 { animation: floatOrb3 8s ease-in-out infinite; }
+    .animate-orb-4 { animation: floatOrb4 6.8s ease-in-out infinite; }
+    .animate-orb-5 { animation: floatOrb5 10s ease-in-out infinite; }
+
+    /* Welcome screen entrance pulse & scale */
+    @keyframes welcomeIn {
+      0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .animate-welcome-in {
+      animation: welcomeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.65; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.06); }
+    }
+    .pulse-glow { animation: pulseGlow 3.5s ease-in-out infinite; }
+
+    /* Circular Reveal Transition effect */
+    .clip-circle-closed {
+      clip-path: circle(0% at 50% 50%);
+    }
+    .clip-circle-open {
+      clip-path: circle(150% at 50% 50%);
+      transition: clip-path 1.15s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* Subtle backdrop card styling */
+    .floating-card {
+      background: #ffffff;
+      box-shadow: 0 24px 48px -12px rgba(214, 0, 28, 0.15), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Input focus styling */
+    .input-field:focus-within {
+      border-color: #D6001C;
+      box-shadow: 0 0 0 3px rgba(214, 0, 28, 0.12);
+    }
+
+    /* Custom scrollbar hide */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Accessibility prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-orb-1, .animate-orb-2, .animate-orb-3, .animate-orb-4, .animate-orb-5, .pulse-glow, .animate-welcome-in {
+        animation: none !important;
+      }
+      .clip-circle-open {
+        transition: none !important;
+        clip-path: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 flex justify-center items-center min-h-screen p-0 sm:p-4 antialiased">
+<!-- Mobile Frame Container (393px x 852px standard iOS) -->
+<div class="relative w-full max-w-[393px] h-[852px] bg-white rounded-none sm:rounded-[48px] overflow-hidden shadow-2xl flex flex-col border border-neutral-800/50 select-none">
+<!-- ==================== 1. LOGIN SCREEN LAYER ==================== -->
+<div class="relative z-10 w-full h-full flex flex-col bg-gradient-to-b from-[#D6001C] via-[#E41932] to-[#FAF8FA] overflow-hidden" id="loginScreen">
+<!-- Background Ambient Geometric Elements & Madrid 7 Stars -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-14 -right-14 w-64 h-64 rounded-full bg-white/10 blur-2xl animate-orb-1"></div>
+<div class="absolute top-48 -left-20 w-60 h-60 rounded-full bg-[#8F0012]/30 blur-xl animate-orb-2"></div>
+<div class="absolute top-64 right-2 w-44 h-44 rounded-full bg-white/10 blur-lg animate-orb-3"></div>
+<!-- Madrid 7 Stars subtle constellation watermark -->
+<div class="absolute top-11 left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-25">
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+<i class="fa-solid fa-star text-white text-[9px]"></i>
+</div>
+</div>
+<!-- Top Header & Official Branding -->
+<div class="relative z-20 pt-10 pb-3.5 px-6 flex flex-col items-center text-center">
+<!-- Logo Badge -->
+<div class="w-16 h-16 rounded-2xl bg-white shadow-xl flex items-center justify-center p-2 mb-2.5 ring-4 ring-white/20">
+<div class="relative w-full h-full flex items-center justify-center">
+<!-- Rhombus Metro icon -->
+<div class="w-9 h-9 bg-[#D6001C] rotate-45 rounded-md flex items-center justify-center shadow-sm">
+<i class="fa-solid fa-train-subway -rotate-45 text-white text-base"></i>
+</div>
+</div>
+</div>
+<h1 class="text-white text-2xl font-extrabold tracking-tight flex items-center gap-1.5">
+<span>Madrid</span><span class="text-white/95 font-light">Conecta</span>
+</h1>
+<p class="text-white/80 text-[10px] font-bold tracking-widest uppercase mt-0.5">
+          Consorcio Regional de Transportes
+        </p>
+</div>
+<!-- Main Floating Login Card -->
+<div class="relative z-20 flex-1 floating-card rounded-t-[34px] px-6 pt-5 pb-5 flex flex-col justify-between mt-auto">
+<div class="space-y-3.5">
+<!-- Card Title -->
+<div class="text-center pb-0.5">
+<h2 class="text-neutral-900 text-lg font-bold tracking-tight">Bienvenido a tu red</h2>
+<p class="text-neutral-500 text-xs mt-0.5">Accede a tus abonos, billetes y tiempos en vivo</p>
+</div>
+<!-- Quick Guest Access Highlight Button (ACCESO SIN REGISTRO) -->
+<button class="w-full bg-gradient-to-r from-red-50 via-rose-50 to-red-50/70 hover:from-red-100 hover:to-rose-100 border border-red-200/90 rounded-2xl p-3 flex items-center justify-between group transition-all duration-200 active:scale-[0.98] shadow-sm" onclick="triggerLoginSequence('Invitado')" type="button">
+<div class="flex items-center gap-3 text-left">
+<div class="w-10 h-10 rounded-xl bg-[#D6001C] text-white flex items-center justify-center shadow-md shadow-red-500/25 group-hover:scale-105 transition-transform">
+<i class="fa-solid fa-user-astronaut text-base"></i>
+</div>
+<div>
+<span class="block text-[10px] font-extrabold text-[#D6001C] uppercase tracking-wider">Acceso sin registro</span>
+<span class="block text-xs font-bold text-neutral-800">Continuar como Invitado</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-[#D6001C] shadow-sm group-hover:translate-x-1 transition-transform border border-red-100">
+<i class="fa-solid fa-arrow-right text-xs"></i>
+</div>
+</button>
+<!-- Divider -->
+<div class="relative flex items-center py-0.5">
+<div class="flex-grow border-t border-neutral-200"></div>
+<span class="flex-shrink mx-3 text-[10px] font-bold text-neutral-400 uppercase tracking-widest">o inicia sesión</span>
+<div class="flex-grow border-t border-neutral-200"></div>
+</div>
+<!-- Credentials Form -->
+<form class="space-y-2.5" onsubmit="event.preventDefault(); triggerLoginSequence('Javier Moreno');">
+<!-- Email / Tarjeta Multi -->
+<div class="input-field bg-neutral-50 rounded-xl border border-neutral-200 px-3.5 py-2 flex items-center gap-3 transition-all duration-150">
+<i class="fa-regular fa-envelope text-neutral-400 text-xs"></i>
+<div class="flex-1">
+<label class="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 leading-none mb-0.5">Correo o Tarjeta Transporte</label>
+<input class="w-full bg-transparent text-xs font-semibold text-neutral-800 outline-none placeholder:text-neutral-300 p-0 border-0 focus:ring-0" id="emailInput" placeholder="ejemplo@correo.com" type="text" value="javier.moreno@gmail.com">
+</div>
+</div>
+<!-- Password with Toggle Visibility -->
+<div class="input-field bg-neutral-50 rounded-xl border border-neutral-200 px-3.5 py-2 flex items-center gap-3 transition-all duration-150">
+<i class="fa-solid fa-lock text-neutral-400 text-xs"></i>
+<div class="flex-1">
+<label class="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 leading-none mb-0.5">Contraseña</label>
+<input class="w-full bg-transparent text-xs font-semibold text-neutral-800 outline-none placeholder:text-neutral-300 p-0 border-0 focus:ring-0" id="passwordInput" placeholder="Tu contraseña" type="password" value="Madrid2025!">
+</div>
+<button aria-label="Mostrar u ocultar contraseña" class="text-neutral-400 hover:text-neutral-700 text-xs p-1 transition-colors" onclick="togglePasswordVisibility()" type="button">
+<i class="fa-regular fa-eye-slash" id="passwordEyeIcon"></i>
+</button>
+</div>
+<div class="flex items-center justify-between text-[11px] pt-0.5 px-0.5">
+<label class="flex items-center gap-2 cursor-pointer text-neutral-600">
+<input checked="" class="w-3.5 h-3.5 rounded text-[#D6001C] accent-[#D6001C] border-neutral-300 focus:ring-red-400" type="checkbox">
+<span>Recordarme</span>
+</label>
+<a class="text-[#D6001C] font-semibold hover:underline" href="#">¿Olvidaste tu clave?</a>
+</div>
+<!-- Primary Login Button -->
+<button class="w-full mt-1.5 bg-[#D6001C] hover:bg-[#B80018] active:bg-[#990014] text-white font-bold py-3 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150" type="submit">
+<i class="fa-solid fa-right-to-bracket text-xs"></i>
+<span class="text-xs font-bold tracking-wide">Iniciar Sesión</span>
+</button>
+</form>
+<!-- Social / Identity options -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl border border-neutral-200 hover:bg-neutral-50 active:bg-neutral-100 text-neutral-700 text-xs font-semibold transition-all active:scale-[0.98]" onclick="triggerLoginSequence('Javier Moreno')" type="button">
+<i class="fa-brands fa-google text-red-500 text-xs"></i>
+<span>Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl border border-neutral-200 hover:bg-neutral-50 active:bg-neutral-100 text-neutral-700 text-xs font-semibold transition-all active:scale-[0.98]" onclick="triggerLoginSequence('Javier Moreno')" type="button">
+<i class="fa-solid fa-id-card text-blue-600 text-xs"></i>
+<span>Cl@ve Móvil</span>
+</button>
+</div>
+</div>
+<!-- Footer / Legal Info -->
+<div class="pt-2 text-center">
+<p class="text-[10px] text-neutral-400 font-medium">
+            Comunidad de Madrid • Sistema Oficial Multimodal
+          </p>
+</div>
+</div>
+</div>
+<!-- ==================== 2. ANIMATED WELCOME LAYER (Esferas flotantes de tonos rojos) ==================== -->
+<div class="absolute inset-0 z-30 pointer-events-none opacity-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#D6001C] via-[#BA0018] to-[#800010] overflow-hidden transition-opacity duration-500" id="welcomeLayer">
+<!-- Spheres of diverse red and crimson tonal intensities with continuous organic motion -->
+<!-- Sphere 1 (Top Left Crimson Bright) -->
+<div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-[#FF4D61]/40 blur-2xl animate-orb-1"></div>
+<!-- Sphere 2 (Bottom Right Deep Wine) -->
+<div class="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-[#52000A]/70 blur-3xl animate-orb-2"></div>
+<!-- Sphere 3 (Center Vivid Coral Red) -->
+<div class="absolute top-1/4 -right-10 w-56 h-56 rounded-full bg-[#FF2E47]/50 blur-xl animate-orb-3"></div>
+<!-- Sphere 4 (Center Left Deep Ruby) -->
+<div class="absolute bottom-1/4 -left-12 w-60 h-60 rounded-full bg-[#990014]/65 blur-xl animate-orb-4"></div>
+<!-- Sphere 5 (Subtle crisp floating bright pastel orb) -->
+<div class="absolute top-14 right-1/4 w-36 h-36 rounded-full bg-white/20 blur-md animate-orb-5"></div>
+<!-- Central Animated Welcome Card / Content -->
+<div class="relative z-40 flex flex-col items-center text-center px-8" id="welcomeContent">
+<!-- Floating Animated App Icon / Rhombus -->
+<div class="w-20 h-20 rounded-3xl bg-white shadow-2xl flex items-center justify-center mb-5 transform pulse-glow">
+<div class="w-12 h-12 bg-[#D6001C] rotate-45 rounded-xl flex items-center justify-center shadow-lg">
+<i class="fa-solid fa-train-subway -rotate-45 text-white text-2xl"></i>
+</div>
+</div>
+<!-- Animated "Bienvenido" text in pure white -->
+<h2 class="text-white text-3xl font-extrabold tracking-tight drop-shadow-md mb-1.5">
+          ¡Bienvenido!
+        </h2>
+<p class="text-white/95 text-base font-semibold tracking-wide mb-4" id="welcomeUserName">
+          Madrid Conecta
+        </p>
+<!-- Dynamic interactive spinner & status pulse -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-white text-xs font-medium shadow-sm">
+<i class="fa-solid fa-circle-notch fa-spin text-white text-xs"></i>
+<span id="welcomeSubtext">Cargando tus líneas y favoritos...</span>
+</div>
+<!-- Subtle progress line -->
+<div class="w-36 h-1 bg-white/20 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-white rounded-full w-2/3 animate-pulse"></div>
+</div>
+</div>
+<!-- Madrid Metro stars bottom decoration -->
+<div class="absolute bottom-10 flex items-center gap-2 opacity-35">
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+<i class="fa-solid fa-star text-white text-[10px]"></i>
+</div>
+</div>
+<!-- ==================== 3. CIRCULAR REVEAL CONTAINER (App Inicio Screen) ==================== -->
+<div class="absolute inset-0 z-40 clip-circle-closed bg-[#F6FAFF] overflow-y-auto no-scrollbar pointer-events-none" id="circleRevealLayer">
+<!-- Top Bar of Inicio -->
+<header class="sticky top-0 z-30 bg-[#F6FAFF]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-neutral-100">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#D6001C] flex items-center justify-center shadow-sm">
+<div class="w-4 h-4 bg-white rotate-45 rounded-[2px] flex items-center justify-center">
+<div class="w-2 h-2 bg-[#D6001C] rotate-45 rounded-[1px]"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-neutral-900 leading-tight">Madrid<span class="text-[#D6001C]">Conecta</span></span>
+<span class="text-[9px] text-neutral-400 font-semibold tracking-wider uppercase">Consorcio Transportes</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Reset Demo / Volver a probar animación -->
+<button class="px-2.5 py-1 text-[11px] font-bold text-[#D6001C] bg-red-50 hover:bg-red-100 rounded-full border border-red-200 flex items-center gap-1.5 transition-colors shadow-sm active:scale-95" onclick="resetToLogin()" title="Volver a probar animación">
+<i class="fa-solid fa-arrow-rotate-left text-[10px]"></i>
+<span>Volver a probar</span>
+</button>
+<!-- Moon dark mode toggle -->
+<button aria-label="Cambiar modo oscuro" class="w-8 h-8 rounded-full bg-white shadow-sm border border-neutral-200 flex items-center justify-center text-neutral-700 hover:text-neutral-900" id="darkModeToggle">
+<i class="fa-regular fa-moon text-xs"></i>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Content of Inicio -->
+<div class="p-4 space-y-4 pb-24">
+<!-- Welcome Greeting & Location -->
+<div class="pt-1 flex items-start justify-between">
+<div>
+<h2 class="text-2xl font-black text-neutral-900 tracking-tight" id="inicioGreeting">
+              Hola, Viajero
+            </h2>
+<div class="flex items-center gap-1.5 text-neutral-500 text-xs font-medium mt-0.5">
+<i class="fa-solid fa-location-arrow text-[#D6001C] text-xs"></i>
+<span>En Sol / Gran Vía, Madrid</span>
+</div>
+</div>
+<!-- Live Service status badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Red 100% fluida</span>
+</div>
+</div>
+<!-- Quick Search Bar -->
+<div class="relative bg-white rounded-2xl border border-neutral-200/80 shadow-sm p-2 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</div>
+<input class="w-full bg-transparent text-xs font-medium text-neutral-800 placeholder:text-neutral-400 outline-none border-0 p-0 focus:ring-0" placeholder="¿A dónde quieres ir? Estación, línea o parada..." type="text">
+<button class="px-2.5 py-1 rounded-lg bg-[#D6001C] text-white text-[11px] font-bold">
+            Ruta
+          </button>
+</div>
+<!-- Tarjeta Transporte Digital -->
+<div class="w-full bg-[#111827] text-white rounded-2xl p-4 shadow-lg shadow-neutral-900/10 relative overflow-hidden" id="transportCardBlock">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-[#D6001C]/20 blur-xl"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#D6001C] flex items-center justify-center text-white shadow-md">
+<i class="fa-solid fa-id-card text-base"></i>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-sm">Tarjeta Transporte Digital</span>
+<span class="bg-neutral-800 text-neutral-300 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-neutral-700" id="zoneBadge">Zona A</span>
+</div>
+<p class="text-xs text-neutral-400 mt-0.5 font-medium" id="cardStatusDetail">Abono Joven 30 días • <span class="text-emerald-400 font-semibold">18 días restantes</span></p>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-neutral-400 text-xs"></i>
+</div>
+</div>
+<!-- Section: Mis Líneas Favoritas -->
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<i class="fa-solid fa-star text-amber-500 text-xs"></i>
+<h3 class="text-xs font-bold text-neutral-900 uppercase tracking-wider">Mis Líneas Favoritas</h3>
+</div>
+<span class="text-[11px] text-neutral-400 font-semibold">3 en vivo</span>
+</div>
+<div class="space-y-2.5">
+<!-- Line 1: Metro L1 -->
+<div class="bg-white rounded-2xl p-3.5 border border-neutral-100 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#009EDB] text-white font-extrabold text-sm flex items-center justify-center shadow-sm">
+                  1
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-neutral-900">Metro Línea 1</span>
+<span class="bg-emerald-50 text-emerald-700 text-[9px] font-bold px-1.5 py-0.5 rounded border border-emerald-200">En vivo</span>
+</div>
+<p class="text-[11px] text-neutral-500 mt-0.5">Pinar de Chamartín — Valdecarros</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-xs font-extrabold text-[#D6001C]">2 min</div>
+<div class="text-[9px] text-neutral-400 font-medium">sig. 5 min</div>
+</div>
+<i class="fa-solid fa-star text-amber-400 text-sm"></i>
+</div>
+</div>
+<!-- Line 2: Cercanías C-3 -->
+<div class="bg-white rounded-2xl p-3.5 border border-neutral-100 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#8B2332] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                  C3
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-neutral-900">Cercanías C-3</span>
+<span class="bg-emerald-50 text-emerald-700 text-[9px] font-bold px-1.5 py-0.5 rounded border border-emerald-200">En vivo</span>
+</div>
+<p class="text-[11px] text-neutral-500 mt-0.5">Aranjuez — Chamartín</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-xs font-extrabold text-neutral-900">4 min</div>
+<div class="text-[9px] text-emerald-600 font-bold">En andén</div>
+</div>
+<i class="fa-solid fa-star text-amber-400 text-sm"></i>
+</div>
+</div>
+<!-- Line 3: Bus EMT 27 -->
+<div class="bg-white rounded-2xl p-3.5 border border-neutral-100 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#005CAB] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                  27
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-xs text-neutral-900">Bus EMT 27</span>
+<span class="bg-emerald-50 text-emerald-700 text-[9px] font-bold px-1.5 py-0.5 rounded border border-emerald-200">En vivo</span>
+</div>
+<p class="text-[11px] text-neutral-500 mt-0.5">Embajadores — Pza. Castilla</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-xs font-extrabold text-[#D6001C]">3 min</div>
+<div class="text-[9px] text-neutral-400 font-medium">sig. 8 min</div>
+</div>
+<i class="fa-solid fa-star text-amber-400 text-sm"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Líneas Más Frecuentes -->
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<i class="fa-solid fa-clock-rotate-left text-neutral-400 text-xs"></i>
+<h3 class="text-xs font-bold text-neutral-900 uppercase tracking-wider">Líneas Más Frecuentes</h3>
+</div>
+<span class="text-[11px] text-neutral-400 font-semibold">Revisadas recientemente</span>
+</div>
+<div class="space-y-2.5">
+<!-- Metro L6 -->
+<div class="bg-white rounded-2xl p-3.5 border border-neutral-100 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#808183] text-white font-extrabold text-sm flex items-center justify-center">
+                  6
+                </div>
+<div>
+<span class="font-bold text-xs text-neutral-900">Metro Línea 6</span>
+<p class="text-[11px] text-neutral-500 mt-0.5">Circular • Cuatro Caminos / Legazpi</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-neutral-100 px-2 py-1 rounded-lg text-neutral-700 text-[10px] font-bold">
+                  Frec. 4 min
+                </div>
+<i class="fa-regular fa-star text-neutral-300 text-sm"></i>
+</div>
+</div>
+<!-- Exprés Aeropuerto EMT -->
+<div class="bg-white rounded-2xl p-3.5 border border-neutral-100 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#E30613] text-white font-extrabold text-xs flex items-center justify-center">
+                  203
+                </div>
+<div>
+<span class="font-bold text-xs text-neutral-900">Exprés Aeropuerto</span>
+<p class="text-[11px] text-neutral-500 mt-0.5">Atocha — Aeropuerto T1-T2-T4</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-blue-50 text-blue-700 px-2 py-1 rounded-lg text-[10px] font-bold">
+                  24h Servicio
+                </div>
+<i class="fa-regular fa-star text-neutral-300 text-sm"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Persistent Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[393px] mx-auto bg-white/95 backdrop-blur-md border-t border-neutral-200/80 px-4 py-2.5 flex items-center justify-around z-50">
+<!-- Inicio (Active) -->
+<button class="flex flex-col items-center gap-1 text-[#D6001C]">
+<div class="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center">
+<i class="fa-solid fa-compass text-sm"></i>
+</div>
+<span class="text-[10px] font-bold">Inicio</span>
+</button>
+<!-- Buscar -->
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<i class="fa-solid fa-magnifying-glass text-sm"></i>
+<span class="text-[10px] font-semibold">Buscar</span>
+</button>
+<!-- Billetes -->
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<i class="fa-solid fa-ticket text-sm"></i>
+<span class="text-[10px] font-semibold">Billetes</span>
+</button>
+<!-- Alertas -->
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<i class="fa-regular fa-bell text-sm"></i>
+<span class="text-[10px] font-semibold">Alertas</span>
+</button>
+<!-- Perfil Avatar -->
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<div class="w-6 h-6 rounded-full overflow-hidden ring-1 ring-neutral-300" id="navAvatarWrapper">
+<img alt="Perfil" class="w-full h-full object-cover" id="navAvatarImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBitDpuM5YvJs3bRF7VolyqZyqr614Yh38K-yQ79ndYL6vEqPVRPx_9r23oL2sSO34Lx9lJXj0PysMGHaQY87NdtfFyoki3pFWZSRuONo763yNcmycNOjch-10MHOiP7O0v4A4JdHO0M0wGf4eFUr1CSJBh7F-1jEK6z7RbC3TvQpnRWsUYCLNLmC7mtiNByc3cjMU-HrXaw2ED_H3ae5bDAuZeyUFRgJLpspKMakLY7NdFpUI7uAB13A">
+</div>
+<span class="text-[10px] font-semibold">Perfil</span>
+</button>
+</nav>
+</div>
+</div>
+<!-- SCRIPT FOR ANIMATIONS AND CIRCULAR TRANSITIONS -->
+<script>
+    let isTransitioning = false;
+
+    // Toggle password visibility
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordEyeIcon = document.getElementById('passwordEyeIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordEyeIcon.classList.remove('fa-eye-slash');
+        passwordEyeIcon.classList.add('fa-eye');
+      } else {
+        passwordInput.type = 'password';
+        passwordEyeIcon.classList.remove('fa-eye');
+        passwordEyeIcon.classList.add('fa-eye-slash');
+      }
+    }
+
+    function triggerLoginSequence(userName) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const isGuest = userName === 'Invitado';
+      const welcomeLayer = document.getElementById('welcomeLayer');
+      const welcomeContent = document.getElementById('welcomeContent');
+      const circleRevealLayer = document.getElementById('circleRevealLayer');
+      const welcomeUserName = document.getElementById('welcomeUserName');
+      const welcomeSubtext = document.getElementById('welcomeSubtext');
+      const inicioGreeting = document.getElementById('inicioGreeting');
+      const navAvatarImg = document.getElementById('navAvatarImg');
+      const cardStatusDetail = document.getElementById('cardStatusDetail');
+      const zoneBadge = document.getElementById('zoneBadge');
+
+      // Personalize copy according to session type
+      if (isGuest) {
+        welcomeUserName.textContent = 'Acceso como Invitado';
+        welcomeSubtext.textContent = 'Configurando líneas y horarios en tiempo real...';
+        inicioGreeting.textContent = 'Hola, Viajero';
+        cardStatusDetail.innerHTML = 'Modo Invitado • <span class="text-amber-400 font-semibold">Sin abono registrado</span>';
+        zoneBadge.textContent = 'Consulta';
+        navAvatarImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&h=120&q=80';
+      } else {
+        welcomeUserName.textContent = 'Madrid Conecta';
+        welcomeSubtext.textContent = 'Cargando tus líneas y favoritos...';
+        inicioGreeting.textContent = 'Hola, Javier';
+        cardStatusDetail.innerHTML = 'Abono Joven 30 días • <span class="text-emerald-400 font-semibold">18 días restantes</span>';
+        zoneBadge.textContent = 'Zona A';
+        navAvatarImg.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80';
+      }
+
+      // Step 1: Fade-in the Welcome Layer with pulsing organic spheres & clean typography entrance
+      welcomeLayer.classList.remove('opacity-0', 'pointer-events-none');
+      welcomeLayer.classList.add('opacity-100');
+      welcomeContent.classList.remove('animate-welcome-in');
+      void welcomeContent.offsetWidth; // Trigger reflow
+      welcomeContent.classList.add('animate-welcome-in');
+
+      // Step 2: After 1.8s, trigger the circular radial expand transition revealing Inicio
+      setTimeout(() => {
+        circleRevealLayer.classList.remove('pointer-events-none');
+        circleRevealLayer.classList.remove('clip-circle-closed');
+        circleRevealLayer.classList.add('clip-circle-open');
+
+        // Complete transition sequence
+        setTimeout(() => {
+          welcomeLayer.classList.add('opacity-0', 'pointer-events-none');
+          welcomeLayer.classList.remove('opacity-100');
+          isTransitioning = false;
+        }, 1200);
+      }, 1800);
+    }
+
+    // Function to return to login to re-test the animation anytime
+    function resetToLogin() {
+      const welcomeLayer = document.getElementById('welcomeLayer');
+      const circleRevealLayer = document.getElementById('circleRevealLayer');
+      
+      circleRevealLayer.classList.add('pointer-events-none');
+      circleRevealLayer.classList.remove('clip-circle-open');
+      circleRevealLayer.classList.add('clip-circle-closed');
+      welcomeLayer.classList.add('opacity-0', 'pointer-events-none');
+      welcomeLayer.classList.remove('opacity-100');
+      isTransitioning = false;
+    }
+
+    // Dark Mode Toggle for Inicio screen
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    let isDarkMode = false;
+    darkModeToggle.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      const revealContainer = document.getElementById('circleRevealLayer');
+      if (isDarkMode) {
+        revealContainer.classList.add('dark', 'bg-neutral-900', 'text-white');
+        darkModeToggle.innerHTML = '<i class="fa-solid fa-sun text-amber-400 text-xs"></i>';
+      } else {
+        revealContainer.classList.remove('dark', 'bg-neutral-900', 'text-white');
+        darkModeToggle.innerHTML = '<i class="fa-regular fa-moon text-neutral-700 text-xs"></i>';
+      }
+    });
+  </script>
+</body></html>
