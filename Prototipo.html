@@ -1,8 +1,10 @@
-<!DOCTYPE html><html class="light" lang="es"><head>
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
 <meta content="mobile_tab" name="shell-type">
-<title>Billetes - Madrid Conecta</title>
+<title>Madrid Conecta</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -34,6 +36,7 @@
     }
     body {
       overscroll-behavior: none;
+      min-height: 100vh;
     }
     .pb-safe {
       padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -54,604 +57,898 @@
   }
 </style>
 </head>
-<body class="bg-[#f1f4f8] dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-100 flex flex-col min-h-screen antialiased transition-colors duration-200 overflow-y-auto" style="min-height: 100vh; overflow: hidden auto;">
-<!-- 1. CABECERA -->
+<body class="bg-[#f1f4f8] dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-100 flex flex-col min-h-screen antialiased transition-colors duration-200">
+
+<!-- 1. CABECERA GLOBAL -->
 <header class="fixed top-0 w-full z-40 bg-[#f1f4f8]/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-[#e2e8f0] dark:border-slate-800 pt-safe transition-colors">
-<div class="h-14 px-4 flex items-center justify-between max-w-md mx-auto">
-<!-- Logotipo Oficial Madrid Conecta -->
-<div class="flex items-center gap-2.5">
-<img alt="Madrid Conecta Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xgbfz57IbMba5yM3iSCkFTQBX7zI7gJAKcozOrpJOIi-2WnOt6pcctI4JkiIaGXwzMbIKcX_KeG9HP7x13dj4A1-Ft6YQWMNXOwixLyiUqz6Nira5XM8Ad_W8ZS4RnZPTSf_aruu_WMR3r8JNVMiUm5JLHWdrwmnUBHE17ksyh6ZcE3FrCpqU4yAZUNa9-8FHwBz_RzIq0qplzz2lv5QP1DKwkDWYz50mESMVQnFxqLQs-XHlQb5KV-qsL">
-</div>
-<!-- Botón de Modo Oscuro -->
-<button aria-label="Cambiar tema" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all shadow-xs" id="themeToggleBtn">
-<span class="material-symbols-outlined text-[19px]" id="themeIcon">dark_mode</span>
-</button>
-</div>
+  <div class="h-14 px-4 flex items-center justify-between max-w-md mx-auto">
+    <!-- Logotipo Oficial Madrid Conecta -->
+    <div class="flex items-center gap-2.5">
+      <img alt="Madrid Conecta Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xgbfz57IbMba5yM3iSCkFTQBX7zI7gJAKcozOrpJOIi-2WnOt6pcctI4JkiIaGXwzMbIKcX_KeG9HP7x13dj4A1-Ft6YQWMNXOwixLyiUqz6Nira5XM8Ad_W8ZS4RnZPTSf_aruu_WMR3r8JNVMiUm5JLHWdrwmnUBHE17ksyh6ZcE3FrCpqU4yAZUNa9-8FHwBz_RzIq0qplzz2lv5QP1DKwkDWYz50mESMVQnFxqLQs-XHlQb5KV-qsL">
+    </div>
+    <!-- Botón de Modo Oscuro -->
+    <button aria-label="Cambiar tema" class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all shadow-xs" id="themeToggleBtn">
+      <span class="material-symbols-outlined text-[19px]" id="themeIcon">dark_mode</span>
+    </button>
+  </div>
 </header>
-<!-- CONTENIDO PRINCIPAL -->
-<main class="flex-1 flex flex-col w-full pt-16 pb-28 px-3.5 max-w-md mx-auto space-y-3.5 overflow-y-auto" style="padding-bottom: 7rem; overflow-y: visible;">
-<!-- 2. RESUMEN DE RUTA Y FECHA -->
-<section class="bg-white dark:bg-slate-800 rounded-2xl p-3.5 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-colors">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded-xl bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-[#d6001c]">
-<span class="material-symbols-outlined text-[19px]">train</span>
-</div>
-<div>
-<div class="flex items-center gap-1.5 text-sm font-bold text-slate-800 dark:text-white leading-tight">
-<span class="">Madrid Atocha</span>
-<span class="material-symbols-outlined text-[15px] text-slate-400">arrow_forward</span>
-<span class="">Barcelona Sants</span>
-</div>
-<div class="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-<span class="">Hoy, 24 Oct</span>
-<span class="">•</span>
-<span class="">1 Adulto</span>
-<span class="">•</span>
-<span class="text-emerald-600 dark:text-emerald-400 font-medium">Ida</span>
-</div>
-</div>
-</div>
-<button class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition" id="swapRouteBtn" title="Invertir trayecto">
-<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
-</button>
-</div>
-<!-- Barra de Filtros y Ordenación -->
-<div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/70 space-y-2.5">
-<!-- Selector desplegable de ordenación -->
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-<span class="material-symbols-outlined text-[16px]">swap_vert</span>
-<span class="font-medium">Ordenar:</span>
-</div>
-<select class="text-xs bg-slate-50 dark:bg-slate-700/70 border border-slate-200 dark:border-slate-600 rounded-lg py-1 px-2.5 font-medium text-slate-700 dark:text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-[#d6001c]" id="sortSelect">
-<option value="price-asc">Precio: Menor a Mayor</option>
-<option value="price-desc">Precio: Mayor a Menor</option>
-<option value="duration-asc">Duración: Más rápido</option>
-<option value="company-asc">A - Z (Compañía)</option>
-<option value="company-desc">Z - A (Compañía)</option>
-</select>
-</div>
-<!-- Filtros rápidos por Compañía ferroviaria -->
-<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="companyFilters">
-<button class="filter-chip active shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#d6001c] text-white shadow-xs transition-all" data-filter="all">Todas</button>
-<button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="renfe">Renfe AVE</button>
-<button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="iryo">Iryo</button>
-<button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="ouigo">Ouigo</button>
-<button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="avlo">Avlo</button>
-</div>
-</div>
-</section>
-<!-- 3. LISTA DE BILLETES Y RESULTADOS -->
-<section class="space-y-3" id="ticketsList">
-<!-- Tarjeta 1: Iryo -->
-<article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="iryo" data-company-name="Iryo" data-duration="150" data-price="29.50" data-time="14:45">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 bg-rose-700 text-white font-bold text-[11px] rounded-md tracking-wider">iryo</span>
-<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Frecciarossa 1000</span>
-</div>
-<div class="text-right">
-<span class="text-xl font-bold text-slate-900 dark:text-white">29,50 €</span>
-<p class="text-[10px] text-slate-400 font-medium">Clase Inicial</p>
-</div>
-</div>
-<!-- Trayecto y Horas -->
-<div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-<div>
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">14:45</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
-<div class="flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
-<span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
-<span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
-</div>
-<span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
-</div>
-<div class="text-right">
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:15</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
-</div>
-</div>
-<!-- Estado y Servicios -->
-<div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Puntual
-          </span>
-<div class="flex items-center gap-1.5 text-slate-400">
-<span class="material-symbols-outlined text-[15px]" title="Wifi Alta Velocidad">wifi</span>
-<span class="material-symbols-outlined text-[15px]" title="Toma de Corriente">power</span>
-<span class="material-symbols-outlined text-[15px]" title="Cafetería Bar">local_cafe</span>
-</div>
-</div>
-<button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="openBookingSuccess('Iryo 14:45', '29,50 €')">
-          Seleccionar
+
+<!-- CONTENEDOR PRINCIPAL DE VISTAS (SPA) -->
+<main class="flex-1 flex flex-col w-full pt-16 px-3.5 max-w-md mx-auto space-y-3.5 pb-28">
+
+  <!-- ==================== VISTA 1: INICIO ==================== -->
+  <section id="view-home" class="tab-view space-y-4">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700">
+      <h2 class="text-base font-bold text-slate-800 dark:text-white">¡Bienvenido a Madrid Conecta!</h2>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+        Tu portal integral de transporte público y movilidad en la Comunidad de Madrid. Consulta el estado de la red en tiempo real o busca billetes de tren.
+      </p>
+      <div class="grid grid-cols-2 gap-2 mt-4">
+        <button onclick="switchTab('billetes')" class="p-3 bg-red-50 dark:bg-red-950/40 rounded-xl border border-red-200/60 dark:border-red-900/40 text-left hover:scale-[1.02] transition-all">
+          <span class="material-symbols-outlined text-[#d6001c] text-2xl mb-1">train</span>
+          <span class="text-xs font-bold block text-slate-800 dark:text-white">Buscar Billetes</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400">AVE, Iryo, Ouigo, Avlo</span>
         </button>
-</div>
-</article>
-<!-- Tarjeta 2: Renfe AVE 03163 -->
-<article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="renfe" data-company-name="Renfe AVE" data-duration="150" data-price="42.90" data-time="15:15">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 bg-[#8b1d40] text-white font-bold text-[11px] rounded-md tracking-wider">renfe AVE</span>
-<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">AVE 03163</span>
-</div>
-<div class="text-right">
-<span class="text-xl font-bold text-slate-900 dark:text-white">42,90 €</span>
-<p class="text-[10px] text-slate-400 font-medium">Clase Confort</p>
-</div>
-</div>
-<!-- Trayecto y Horas -->
-<div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-<div>
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">15:15</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
-<div class="flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-[#8b1d40]"></span>
-<span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
-<span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
-</div>
-<span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
-</div>
-<div class="text-right">
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:45</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
-</div>
-</div>
-<!-- Estado y Servicios -->
-<div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-<div class="flex items-center gap-2.5">
-<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-full border border-amber-200/60 dark:border-amber-900/60">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-            Demora 10 min (15:25)
-          </span>
-<div class="flex items-center gap-1.5 text-slate-400">
-<span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe">wifi</span>
-<span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
-<span class="material-symbols-outlined text-[15px]" title="Cafetería">local_cafe</span>
-</div>
-</div>
-<button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="openBookingSuccess('AVE 03163', '42,90 €')">
-          Seleccionar
+        <button onclick="switchTab('alertas')" class="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200/60 dark:border-amber-900/40 text-left hover:scale-[1.02] transition-all">
+          <span class="material-symbols-outlined text-amber-600 dark:text-amber-400 text-2xl mb-1">notifications</span>
+          <span class="text-xs font-bold block text-slate-800 dark:text-white">Alertas de Red</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400">Metro, Cercanías, EMT</span>
         </button>
-</div>
-</article>
-<!-- Tarjeta 3: Ouigo -->
-<article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="ouigo" data-company-name="Ouigo" data-duration="155" data-price="19.00" data-time="16:05">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 bg-[#00a8e8] text-white font-extrabold text-[11px] rounded-md tracking-wider">OUIGO</span>
-<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">TGV 2 pisos</span>
-</div>
-<div class="text-right">
-<span class="text-xl font-bold text-pink-600 dark:text-pink-400">19,00 €</span>
-<p class="text-[10px] text-slate-400 font-medium">Clase Esencial</p>
-</div>
-</div>
-<!-- Trayecto y Horas -->
-<div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-<div>
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">16:05</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Puerta de Atocha</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 35m</span>
-<div class="flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-[#00a8e8]"></span>
-<span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
-<span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
-</div>
-<span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">1 parada (Zaragoza)</span>
-</div>
-<div class="text-right">
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">18:40</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
-</div>
-</div>
-<!-- Estado y Servicios -->
-<div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Puntual
-          </span>
-<div class="flex items-center gap-1.5 text-slate-400">
-<span class="material-symbols-outlined text-[15px]" title="OUIGO Plus Wifi opcional">wifi</span>
-<span class="material-symbols-outlined text-[15px]" title="Toma de Corriente">power</span>
-<span class="material-symbols-outlined text-[15px]" title="OUIBAR">local_cafe</span>
-</div>
-</div>
-<button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="openBookingSuccess('Ouigo 16:05', '19,00 €')">
-          Seleccionar
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 2: BUSCAR ==================== -->
+  <section id="view-search" class="tab-view hidden space-y-4">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700">
+      <h2 class="text-sm font-bold text-slate-800 dark:text-white mb-2">Buscador de Rutas y Horarios</h2>
+      <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-3">Planifica tu viaje introduciendo el origen y destino.</p>
+      <div class="space-y-2">
+        <input type="text" placeholder="Origen (ej. Madrid Atocha)" class="w-full text-xs bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl p-2.5 text-slate-800 dark:text-white">
+        <input type="text" placeholder="Destino (ej. Barcelona Sants)" class="w-full text-xs bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl p-2.5 text-slate-800 dark:text-white">
+        <button onclick="switchTab('billetes')" class="w-full py-2.5 bg-[#d6001c] text-white font-bold text-xs rounded-xl shadow-xs hover:bg-[#b3152d] transition-all">Ver Resultados</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 3: BILLETES ==================== -->
+  <section id="view-tickets" class="tab-view hidden space-y-3.5">
+    <!-- RESUMEN DE RUTA Y FECHA -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-3.5 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-colors">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-[#d6001c]">
+            <span class="material-symbols-outlined text-[19px]">train</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-sm font-bold text-slate-800 dark:text-white leading-tight">
+              <span id="routeOrigin">Madrid Atocha</span>
+              <span class="material-symbols-outlined text-[15px] text-slate-400">arrow_forward</span>
+              <span id="routeDest">Barcelona Sants</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+              <span>Hoy, 24 Oct</span>
+              <span>•</span>
+              <span>1 Adulto</span>
+              <span>•</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-medium">Ida</span>
+            </div>
+          </div>
+        </div>
+        <button class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition" id="swapRouteBtn" title="Invertir trayecto">
+          <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
         </button>
-</div>
-</article>
-<!-- Tarjeta 4: Avlo -->
-<article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="avlo" data-company-name="Avlo" data-duration="155" data-price="24.00" data-time="17:30">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 bg-[#008f8c] text-white font-extrabold text-[11px] rounded-md tracking-wider">avlo</span>
-<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">S-106</span>
-</div>
-<div class="text-right">
-<span class="text-xl font-bold text-[#008f8c] dark:text-[#20c997]">24,00 €</span>
-<p class="text-[10px] text-slate-400 font-medium">Tarifa Básica</p>
-</div>
-</div>
-<!-- Trayecto y Horas -->
-<div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-<div>
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:30</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 35m</span>
-<div class="flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-[#008f8c]"></span>
-<span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
-<span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
-</div>
-<span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
-</div>
-<div class="text-right">
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">20:05</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
-</div>
-</div>
-<!-- Estado y Servicios -->
-<div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Puntual
+      </div>
+      <!-- Barra de Filtros y Ordenación -->
+      <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/70 space-y-2.5">
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+            <span class="material-symbols-outlined text-[16px]">swap_vert</span>
+            <span class="font-medium">Ordenar:</span>
+          </div>
+          <select class="text-xs bg-slate-50 dark:bg-slate-700/70 border border-slate-200 dark:border-slate-600 rounded-lg py-1 px-2.5 font-medium text-slate-700 dark:text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-[#d6001c]" id="sortSelect">
+            <option value="price-asc">Precio: Menor a Mayor</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+            <option value="duration-asc">Duración: Más rápido</option>
+            <option value="company-asc">A - Z (Compañía)</option>
+            <option value="company-desc">Z - A (Compañía)</option>
+          </select>
+        </div>
+        <!-- Filtros por Compañía -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="companyFilters">
+          <button class="filter-chip active shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#d6001c] text-white shadow-xs transition-all" data-filter="all">Todas</button>
+          <button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="renfe">Renfe AVE</button>
+          <button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="iryo">Iryo</button>
+          <button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="ouigo">Ouigo</button>
+          <button class="filter-chip shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-all" data-filter="avlo">Avlo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTA DE BILLETES Y RESULTADOS -->
+    <div class="space-y-3" id="ticketsList">
+      <!-- Tarjeta 1: Iryo -->
+      <article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="iryo" data-company-name="Iryo" data-duration="150" data-price="29.50" data-time="14:45">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-rose-700 text-white font-bold text-[11px] rounded-md tracking-wider">iryo</span>
+            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Frecciarossa 1000</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-bold text-slate-900 dark:text-white">29,50 €</span>
+            <p class="text-[10px] text-slate-400 font-medium">Clase Inicial</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">14:45</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
+              <span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
+              <span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
+            </div>
+            <span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:15</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Puntual
+            </span>
+            <div class="flex items-center gap-1.5 text-slate-400">
+              <span class="material-symbols-outlined text-[15px]" title="Wifi Alta Velocidad">wifi</span>
+              <span class="material-symbols-outlined text-[15px]" title="Toma de Corriente">power</span>
+              <span class="material-symbols-outlined text-[15px]" title="Cafetería Bar">local_cafe</span>
+            </div>
+          </div>
+          <button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="selectTicket('Iryo 14:45', '29,50 €')">
+            Seleccionar
+          </button>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2: Renfe AVE 03163 -->
+      <article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="renfe" data-company-name="Renfe AVE" data-duration="150" data-price="42.90" data-time="15:15">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-[#8b1d40] text-white font-bold text-[11px] rounded-md tracking-wider">renfe AVE</span>
+            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">AVE 03163</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-bold text-slate-900 dark:text-white">42,90 €</span>
+            <p class="text-[10px] text-slate-400 font-medium">Clase Confort</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">15:15</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#8b1d40]"></span>
+              <span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
+              <span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
+            </div>
+            <span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:45</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-full border border-amber-200/60 dark:border-amber-900/60">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              Demora 10 min (15:25)
+            </span>
+            <div class="flex items-center gap-1.5 text-slate-400">
+              <span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe">wifi</span>
+              <span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
+              <span class="material-symbols-outlined text-[15px]" title="Cafetería">local_cafe</span>
+            </div>
+          </div>
+          <button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="selectTicket('AVE 03163', '42,90 €')">
+            Seleccionar
+          </button>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3: Ouigo -->
+      <article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="ouigo" data-company-name="Ouigo" data-duration="155" data-price="19.00" data-time="16:05">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-[#00a8e8] text-white font-extrabold text-[11px] rounded-md tracking-wider">OUIGO</span>
+            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">TGV 2 pisos</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">19,00 €</span>
+            <p class="text-[10px] text-slate-400 font-medium">Clase Esencial</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">16:05</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 35m</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#00a8e8]"></span>
+              <span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
+              <span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
+            </div>
+            <span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">1 parada (Zaragoza)</span>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">18:40</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Puntual
+            </span>
+            <div class="flex items-center gap-1.5 text-slate-400">
+              <span class="material-symbols-outlined text-[15px]" title="OUIGO Plus Wifi opcional">wifi</span>
+              <span class="material-symbols-outlined text-[15px]" title="Toma de Corriente">power</span>
+              <span class="material-symbols-outlined text-[15px]" title="OUIBAR">local_cafe</span>
+            </div>
+          </div>
+          <button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="selectTicket('Ouigo 16:05', '19,00 €')">
+            Seleccionar
+          </button>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4: Avlo -->
+      <article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="avlo" data-company-name="Avlo" data-duration="155" data-price="24.00" data-time="17:30">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-[#008f8c] text-white font-extrabold text-[11px] rounded-md tracking-wider">avlo</span>
+            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">S-106</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-bold text-[#008f8c] dark:text-[#20c997]">24,00 €</span>
+            <p class="text-[10px] text-slate-400 font-medium">Tarifa Básica</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">17:30</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 35m</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#008f8c]"></span>
+              <span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
+              <span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
+            </div>
+            <span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">20:05</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Puntual
+            </span>
+            <div class="flex items-center gap-1.5 text-slate-400">
+              <span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe Avlo">wifi</span>
+              <span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
+              <span class="material-symbols-outlined text-[15px]" title="Máquinas vending">lunch_dining</span>
+            </div>
+          </div>
+          <button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="selectTicket('Avlo 17:30', '24,00 €')">
+            Seleccionar
+          </button>
+        </div>
+      </article>
+
+      <!-- Tarjeta 5: Renfe AVE 03191 -->
+      <article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="renfe" data-company-name="Renfe AVE" data-duration="150" data-price="55.00" data-time="18:20">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-[#8b1d40] text-white font-bold text-[11px] rounded-md tracking-wider">renfe AVE</span>
+            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">AVE 03191</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-bold text-slate-900 dark:text-white">55,00 €</span>
+            <p class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold">Clase Premium</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <div>
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">18:20</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#8b1d40]"></span>
+              <span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
+              <span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
+            </div>
+            <span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">20:50</div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Puntual
+            </span>
+            <div class="flex items-center gap-1.5 text-slate-400">
+              <span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe">wifi</span>
+              <span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
+              <span class="material-symbols-outlined text-[15px]" title="Sala Club incluida">room_service</span>
+            </div>
+          </div>
+          <button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="selectTicket('AVE 03191', '55,00 €')">
+            Seleccionar
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 4: ALERTAS ==================== -->
+  <section id="view-alerts" class="tab-view hidden space-y-3.5">
+    <!-- Tarjeta Estado General Red -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
+        <div class="flex items-center gap-2">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-600 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
           </span>
-<div class="flex items-center gap-1.5 text-slate-400">
-<span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe Avlo">wifi</span>
-<span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
-<span class="material-symbols-outlined text-[15px]" title="Máquinas vending">lunch_dining</span>
-</div>
-</div>
-<button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="openBookingSuccess('Avlo 17:30', '24,00 €')">
-          Seleccionar
-        </button>
-</div>
-</article>
-<!-- Tarjeta 5: Renfe AVE 03191 -->
-<article class="ticket-card bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 transition-all hover:border-slate-300" data-company="renfe" data-company-name="Renfe AVE" data-duration="150" data-price="55.00" data-time="18:20">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 bg-[#8b1d40] text-white font-bold text-[11px] rounded-md tracking-wider">renfe AVE</span>
-<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">AVE 03191</span>
-</div>
-<div class="text-right">
-<span class="text-xl font-bold text-slate-900 dark:text-white">55,00 €</span>
-<p class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold">Clase Premium</p>
-</div>
-</div>
-<!-- Trayecto y Horas -->
-<div class="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-<div>
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">18:20</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">Madrid Atocha</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-0.5">2h 30m</span>
-<div class="flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-[#8b1d40]"></span>
-<span class="w-14 h-[2px] bg-slate-200 dark:bg-slate-700"></span>
-<span class="material-symbols-outlined text-[13px] text-slate-400">arrow_forward</span>
-</div>
-<span class="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">Directo</span>
-</div>
-<div class="text-right">
-<div class="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none">20:50</div>
-<span class="text-[11px] text-slate-500 dark:text-slate-400">BCN Sants</span>
-</div>
-</div>
-<!-- Estado y Servicios -->
-<div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Puntual
-          </span>
-<div class="flex items-center gap-1.5 text-slate-400">
-<span class="material-symbols-outlined text-[15px]" title="Wifi PlayRenfe">wifi</span>
-<span class="material-symbols-outlined text-[15px]" title="Enchufes">power</span>
-<span class="material-symbols-outlined text-[15px]" title="Sala Club incluida">room_service</span>
-</div>
-</div>
-<button class="px-3.5 py-1.5 bg-[#d6001c] hover:bg-[#b3152d] text-white rounded-lg text-xs font-semibold shadow-xs transition active:scale-95" onclick="openBookingSuccess('AVE 03191', '55,00 €')">
-          Seleccionar
-        </button>
-</div>
-</article>
-</section>
+          <span class="text-xs font-bold text-slate-800 dark:text-white">Red activa en tiempo real</span>
+        </div>
+        <span class="text-[11px] font-bold text-[#d6001c] bg-red-50 dark:bg-red-950/50 px-2.5 py-0.5 rounded-full" id="activeAlertsBadge">3 avisos activos</span>
+      </div>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">El 96% de la red de transporte opera con normalidad. Retrasos localizados por obras y afluencia puntual.</p>
+      <div class="grid grid-cols-3 gap-2 mt-3.5">
+        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-2.5 text-center border border-slate-100 dark:border-slate-700/50">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block mb-0.5">Metro</span>
+          <span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">98%</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-2.5 text-center border border-slate-100 dark:border-slate-700/50">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block mb-0.5">Cercanías</span>
+          <span class="text-sm font-bold text-[#d6001c]">91%</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-2.5 text-center border border-slate-100 dark:border-slate-700/50">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block mb-0.5">EMT Bus</span>
+          <span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">97%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Filtros Interactivos -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filterChipsBar">
+      <button class="network-filter-chip bg-[#d6001c] text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-xs transition-all flex items-center gap-1.5 shrink-0" data-filter-type="all" type="button">
+        <span class="material-symbols-outlined text-[16px]">hub</span>
+        <span id="allFilterLabel">Todos (3)</span>
+      </button>
+      <button class="network-filter-chip bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#d6001c]/40 text-xs font-medium px-3.5 py-1.5 rounded-full shadow-xs transition-all flex items-center gap-1.5 shrink-0" data-filter-type="metro" type="button">
+        <span class="material-symbols-outlined text-[16px]">subway</span>
+        <span>Metro</span>
+      </button>
+      <button class="network-filter-chip bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#d6001c]/40 text-xs font-medium px-3.5 py-1.5 rounded-full shadow-xs transition-all flex items-center gap-1.5 shrink-0" data-filter-type="cercanias" type="button">
+        <span class="material-symbols-outlined text-[16px]">train</span>
+        <span>Cercanías</span>
+      </button>
+      <button class="network-filter-chip bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#d6001c]/40 text-xs font-medium px-3.5 py-1.5 rounded-full shadow-xs transition-all flex items-center gap-1.5 shrink-0" data-filter-type="emt" type="button">
+        <span class="material-symbols-outlined text-[16px]">directions_bus</span>
+        <span>EMT</span>
+      </button>
+    </div>
+
+    <!-- Contenedor de Tarjetas de Alertas -->
+    <div class="space-y-3" id="alertsListContainer">
+      <!-- Aviso Metro L10 -->
+      <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="metro">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#001d34] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">10</span>
+            <div>
+              <span class="text-xs font-bold text-slate-800 dark:text-white block">Metro • Línea 10</span>
+              <span class="text-[10px] text-slate-400">Frecuencia adaptada</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="text-[10px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full border border-amber-200/60 dark:border-amber-800/40">Regulación</span>
+            <span class="text-[10px] text-slate-400 font-medium">5 min</span>
+          </div>
+        </div>
+        <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Frecuencia regulada por alta afluencia</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Intervalo de trenes adaptado en Nuevos Ministerios sentido Puerta del Sur. Paso estimado: 4-5 minutos.</p>
+        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-slate-400">info</span>
+            <span class="text-[11px] font-medium">Tramo: Chamartín ↔ Gregorio Marañón</span>
+          </div>
+          <span class="text-[10px] font-semibold text-slate-400">10:42 h</span>
+        </div>
+      </article>
+
+      <!-- Aviso Cercanías C3 -->
+      <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="cercanias">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#b3152d] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">C3</span>
+            <div>
+              <span class="text-xs font-bold text-slate-800 dark:text-white block">Cercanías Renfe</span>
+              <span class="text-[10px] text-slate-400">Línea Chamartín - Aranjuez</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="text-[10px] font-bold bg-red-50 dark:bg-red-950/40 text-[#d6001c] px-2 py-0.5 rounded-full border border-red-200/60 dark:border-red-900/40">Demoras +6m</span>
+            <span class="text-[10px] text-slate-400 font-medium">12 min</span>
+          </div>
+        </div>
+        <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Trabajos de señalización en Madrid-Atocha</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Circulación ralentizada a la entrada del túnel de Sol. Trenes con paradas prolongadas en andenes centrales.</p>
+        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-slate-400">engineering</span>
+            <span class="text-[11px] font-medium">Afecta andenes 4 y 5</span>
+          </div>
+          <span class="text-[10px] font-semibold text-slate-400">10:35 h</span>
+        </div>
+      </article>
+
+      <!-- Aviso EMT Línea 34 -->
+      <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="emt">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-[#426180] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">34</span>
+            <div>
+              <span class="text-xs font-bold text-slate-800 dark:text-white block">EMT Madrid</span>
+              <span class="text-[10px] text-slate-400">Cibeles ↔ Las Águilas</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/40">Desvío</span>
+            <span class="text-[10px] text-slate-400 font-medium">25 min</span>
+          </div>
+        </div>
+        <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Desvío puntual sentido Cibeles por obras</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Pavimentación en Vía Carpetana. Paradas suprimidas 2471 y 2472. Habilitada parada provisional en C/ Alhambra.</p>
+        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-slate-400">alt_route</span>
+            <span class="text-[11px] font-medium">Cibeles ↔ Las Águilas</span>
+          </div>
+          <span class="text-[10px] font-semibold text-slate-400">10:22 h</span>
+        </div>
+      </article>
+
+      <!-- Avisos Ocultos Adicionales -->
+      <div class="hidden space-y-3" id="additionalAlerts">
+        <!-- Metro Línea 1 -->
+        <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="metro">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-[#294967] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">1</span>
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-white block">Metro • Línea 1</span>
+                <span class="text-[10px] text-slate-400">Accesibilidad</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full">Informativo</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Apertura de ascensores en Estación Sol</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Restablecido acceso adaptado para personas de movilidad reducida en vestíbulo principal.</p>
+          <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-slate-400">accessible</span>
+              <span class="text-[11px] font-medium">Servicio restablecido 100%</span>
+            </div>
+            <span class="text-[10px] font-semibold text-slate-400">10:05 h</span>
+          </div>
+        </article>
+
+        <!-- Metro Línea 6 -->
+        <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="metro">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-slate-700 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">6</span>
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-white block">Metro • Línea 6 Circular</span>
+                <span class="text-[10px] text-slate-400">Frecuencia habitual</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full">Normalizado</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Finalizada incidencia técnica en Moncloa</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Restablecidas las frecuencias regulares tras asistencia técnica en andén 2.</p>
+          <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-slate-400">check_circle</span>
+              <span class="text-[11px] font-medium">Circular completa en hora</span>
+            </div>
+            <span class="text-[10px] font-semibold text-slate-400">09:45 h</span>
+          </div>
+        </article>
+
+        <!-- Cercanías C4 -->
+        <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="cercanias">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-[#b3152d] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">C4</span>
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-white block">Cercanías Renfe</span>
+                <span class="text-[10px] text-slate-400">Parla ↔ Alcobendas / Colmenar</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full">Retrasos +4m</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Circulación en vía única entre Cantoblanco y Getafe</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Mantenimiento preventivo de catenaria. Paradas en andén habitual con tiempo de espera ligeramente incrementado.</p>
+          <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-slate-400">schedule</span>
+              <span class="text-[11px] font-medium">Tramo centro: Sol ↔ Nuevos Ministerios</span>
+            </div>
+            <span class="text-[10px] font-semibold text-slate-400">09:30 h</span>
+          </div>
+        </article>
+
+        <!-- EMT Línea 27 -->
+        <article class="alert-item bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-network="emt">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-[#426180] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs">27</span>
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-white block">EMT Madrid</span>
+                <span class="text-[10px] text-slate-400">Embajadores ↔ Plaza de Castilla</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">Refuerzo</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-800 dark:text-white mt-2.5">Autobuses de refuerzo en eje Castellana</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Incrementadas las frecuencias de paso a 3-4 minutos para facilitar conexiones con Cercanías Recoletos.</p>
+          <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-slate-400">directions_bus</span>
+              <span class="text-[11px] font-medium">Eje Castellana / Recoletos</span>
+            </div>
+            <span class="text-[10px] font-semibold text-slate-400">09:15 h</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Botón Desplegar / Contraer Avisos -->
+    <div class="pt-1 flex justify-center">
+      <button class="w-full py-2.5 px-4 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/60 border border-slate-200 dark:border-slate-700 text-[#d6001c] font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer" id="toggleAlertsBtn" type="button">
+        <span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="toggleIcon">expand_more</span>
+        <span id="toggleText">Mostrar más avisos (+4)</span>
+      </button>
+    </div>
+
+    <!-- Tarjeta Notificaciones Líneas Favoritas -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <span class="text-xs font-bold text-slate-800 dark:text-white block">¿Viajas con frecuencia?</span>
+        <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">Recibe notificaciones inmediatas de tus líneas favoritas.</span>
+      </div>
+      <button class="bg-[#d6001c] hover:bg-[#b3152d] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-xs transition-all shrink-0 active:scale-95" type="button">Configurar</button>
+    </div>
+  </section>
+
+  <!-- ==================== VISTA 5: PERFIL ==================== -->
+  <section id="view-profile" class="tab-view hidden space-y-4">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#d6001c]">
+        <img alt="Perfil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VDk2c0PqEQ5dEtj9VXDtH3Sp0RcIjL_ej5dmH5eSE45g7Cr2CZTxwvggfD0abOi1NXatIwj9fwHgm_OqIOtOMxWswWhrHSPglEVr-MkdD2BjxfqoZB5oc3OG8ZY_cwJK-Phl3GzEABciZ6sDwfQprxCKHIAh8WNAuuf-gND5RjDm7X_bYwP9c7F6g1BgAMR1c_7Sz827G5KGUdKPdEkgBpPaU5CIaCsETNVX4ihmx4M5aRmZB0ZDtgwS-1">
+      </div>
+      <div>
+        <h2 class="text-sm font-bold text-slate-800 dark:text-white">Usuario Registrado</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">usuario@madridconecta.es</p>
+      </div>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-2 shadow-xs border border-slate-200 dark:border-slate-700 divide-y divide-slate-100 dark:divide-slate-700">
+      <button onclick="openDrawer()" class="w-full p-3 flex items-center justify-between text-xs text-slate-700 dark:text-slate-200 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-xl transition">
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d6001c]">confirmation_number</span> Mis Billetes Guardados</span>
+        <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+      </button>
+      <button class="w-full p-3 flex items-center justify-between text-xs text-slate-700 dark:text-slate-200 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-xl transition">
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d6001c]">favorite</span> Líneas Favoritas</span>
+        <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+      </button>
+      <button class="w-full p-3 flex items-center justify-between text-xs text-slate-700 dark:text-slate-200 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-xl transition">
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d6001c]">settings</span> Configuración de la App</span>
+        <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+      </button>
+    </div>
+  </section>
+
 </main>
-<!-- 4. BOTÓN FLOTANTE "MIS BILLETES" -->
+
+<!-- BOTÓN FLOTANTE DE ACCESO RÁPIDO A "MIS BILLETES" -->
 <div class="fixed bottom-20 right-4 z-40 max-w-md mx-auto">
-<button class="flex items-center gap-2 px-4 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all text-xs font-bold border border-slate-700/40 dark:border-slate-300" id="openMyTicketsBtn">
-<span class="material-symbols-outlined text-[19px] text-[#d6001c]">confirmation_number</span>
-<span class="">Mis billetes</span>
-<span class="px-1.5 py-0.5 bg-[#d6001c] text-white rounded-full text-[10px] font-bold">3</span>
-</button>
+  <button class="flex items-center gap-2 px-4 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all text-xs font-bold border border-slate-700/40 dark:border-slate-300" id="openMyTicketsBtn">
+    <span class="material-symbols-outlined text-[19px] text-[#d6001c]">confirmation_number</span>
+    <span>Mis billetes</span>
+    <span class="px-1.5 py-0.5 bg-[#d6001c] text-white rounded-full text-[10px] font-bold">3</span>
+  </button>
 </div>
-<!-- 4. PANEL LATERAL / DRAWER DE "MIS BILLETES COMPRADOS" -->
+
+<!-- PANEL LATERAL / DRAWER DE "MIS BILLETES COMPRADOS" -->
 <div class="fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="drawerBackdrop"></div>
 <aside class="fixed inset-y-0 right-0 max-w-md w-full sm:w-[420px] bg-[#f1f4f8] dark:bg-slate-900 z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-slate-800" id="ticketsDrawer">
-<!-- Encabezado Drawer -->
-<div class="p-4 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between pt-safe">
-<div class="flex items-center gap-2.5">
-<div class="w-8 h-8 rounded-xl bg-red-50 dark:bg-red-950/50 text-[#d6001c] flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
-</div>
-<div>
-<h2 class="text-sm font-bold text-slate-800 dark:text-white leading-tight">Mis Billetes Comprados</h2>
-<p class="text-[11px] text-slate-500 dark:text-slate-400">3 títulos disponibles</p>
-</div>
-</div>
-<button class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition" id="closeDrawerBtn">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<!-- Contenido Scrollable Drawer -->
-<div class="flex-1 overflow-y-auto p-4 space-y-3.5 pb-safe">
-<p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Toca un billete para ver el código QR</p>
-<!-- Billete Comprado 1: AVE Madrid - BCN -->
-<div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="1">
-<div class="flex items-center justify-between">
-<span class="px-2 py-0.5 rounded-md bg-[#8b1d40] text-white text-[10px] font-bold tracking-wider">AVE 03163</span>
-<span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">Activo</span>
-</div>
-<div class="mt-2.5 flex items-center justify-between">
-<div>
-<h3 class="text-sm font-bold text-slate-800 dark:text-white">Madrid Atocha ➔ Barcelona Sants</h3>
-<p class="text-xs text-slate-500 dark:text-slate-400">Hoy, 24 Oct • Salida 15:15</p>
-</div>
-</div>
-<div class="mt-3 grid grid-cols-4 gap-1.5 text-center text-xs">
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Coche</span>
-<span class="font-bold text-slate-800 dark:text-slate-200">04</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Asiento</span>
-<span class="font-bold text-slate-800 dark:text-slate-200">07B</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Andén</span>
-<span class="font-bold text-[#d6001c]">Vía 6</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Localizador</span>
-<span class="font-bold text-slate-700 dark:text-slate-300 text-[10px]">MC-7892</span>
-</div>
-</div>
-<!-- Detalle Expandido con QR -->
-<div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-1">
-<div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
-<svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
-<rect fill="currentColor" height="8" width="8" x="58" y="14"></rect>
-<rect fill="currentColor" height="8" width="16" x="74" y="14"></rect>
-<rect fill="currentColor" height="12" width="8" x="98" y="22"></rect>
-<rect fill="currentColor" height="8" width="16" x="58" y="32"></rect>
-<rect fill="currentColor" height="8" width="8" x="82" y="32"></rect>
-<rect fill="currentColor" height="8" width="14" x="16" y="58"></rect>
-<rect fill="currentColor" height="14" width="8" x="38" y="58"></rect>
-<rect fill="currentColor" height="8" width="14" x="58" y="58"></rect>
-<rect fill="currentColor" height="8" width="14" x="80" y="58"></rect>
-<rect fill="currentColor" height="14" width="8" x="102" y="54"></rect>
-<rect fill="currentColor" height="8" width="14" x="126" y="58"></rect>
-<rect fill="#d6001c" height="18" rx="4" width="18" x="71" y="71"></rect>
-<circle cx="80" cy="80" fill="#ffffff" r="4"></circle>
-<rect fill="currentColor" height="14" width="8" x="20" y="80"></rect>
-<rect fill="currentColor" height="8" width="14" x="36" y="80"></rect>
-<rect fill="currentColor" height="8" width="14" x="98" y="80"></rect>
-<rect fill="currentColor" height="14" width="8" x="126" y="76"></rect>
-<rect fill="currentColor" height="8" width="14" x="58" y="98"></rect>
-<rect fill="currentColor" height="14" width="8" x="80" y="98"></rect>
-<rect fill="currentColor" height="14" width="8" x="100" y="98"></rect>
-<rect fill="currentColor" height="8" width="8" x="60" y="122"></rect>
-<rect fill="currentColor" height="14" width="8" x="80" y="118"></rect>
-<rect fill="currentColor" height="8" width="14" x="100" y="122"></rect>
-<rect fill="currentColor" height="8" width="14" x="124" y="122"></rect>
-</svg>
-</div>
-<p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">MC-AVE-7892</p>
-<p class="text-[10px] text-slate-400">Control de equipaje y tornos de embarque</p>
-<!-- Acciones del billete -->
-<div class="mt-3 flex gap-2">
-<button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
-<span class="material-symbols-outlined text-[16px]">wallet</span>
-            Añadir a Wallet
+  <!-- Encabezado Drawer -->
+  <div class="p-4 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between pt-safe">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-red-50 dark:bg-red-950/50 text-[#d6001c] flex items-center justify-center">
+        <span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+      </div>
+      <div>
+        <h2 class="text-sm font-bold text-slate-800 dark:text-white leading-tight">Mis Billetes Comprados</h2>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400">3 títulos disponibles</p>
+      </div>
+    </div>
+    <button class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition" id="closeDrawerBtn">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+
+  <!-- Contenido Scrollable Drawer -->
+  <div class="flex-1 overflow-y-auto p-4 space-y-3.5 pb-safe">
+    <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Toca un billete para ver el código QR</p>
+
+    <!-- Billete 1: AVE Madrid - BCN -->
+    <div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="1">
+      <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-md bg-[#8b1d40] text-white text-[10px] font-bold tracking-wider">AVE 03163</span>
+        <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">Activo</span>
+      </div>
+      <div class="mt-2.5 flex items-center justify-between">
+        <div>
+          <h3 class="text-sm font-bold text-slate-800 dark:text-white">Madrid Atocha ➔ Barcelona Sants</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Hoy, 24 Oct • Salida 15:15</p>
+        </div>
+      </div>
+      <div class="mt-3 grid grid-cols-4 gap-1.5 text-center text-xs">
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Coche</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">04</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Asiento</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">07B</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Andén</span>
+          <span class="font-bold text-[#d6001c]">Vía 6</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Localizador</span>
+          <span class="font-bold text-slate-700 dark:text-slate-300 text-[10px]">MC-7892</span>
+        </div>
+      </div>
+
+      <!-- Detalle Expandido con QR -->
+      <div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-1">
+        <div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
+          <svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
+            <rect fill="currentColor" height="8" width="8" x="58" y="14"></rect>
+            <rect fill="currentColor" height="8" width="16" x="74" y="14"></rect>
+            <rect fill="currentColor" height="12" width="8" x="98" y="22"></rect>
+            <rect fill="currentColor" height="8" width="16" x="58" y="32"></rect>
+            <rect fill="currentColor" height="8" width="8" x="82" y="32"></rect>
+            <rect fill="currentColor" height="8" width="14" x="16" y="58"></rect>
+            <rect fill="currentColor" height="14" width="8" x="38" y="58"></rect>
+            <rect fill="currentColor" height="8" width="14" x="58" y="58"></rect>
+            <rect fill="currentColor" height="8" width="14" x="80" y="58"></rect>
+            <rect fill="currentColor" height="14" width="8" x="102" y="54"></rect>
+            <rect fill="currentColor" height="8" width="14" x="126" y="58"></rect>
+            <rect fill="#d6001c" height="18" rx="4" width="18" x="71" y="71"></rect>
+            <circle cx="80" cy="80" fill="#ffffff" r="4"></circle>
+            <rect fill="currentColor" height="14" width="8" x="20" y="80"></rect>
+            <rect fill="currentColor" height="8" width="14" x="36" y="80"></rect>
+            <rect fill="currentColor" height="8" width="14" x="98" y="80"></rect>
+            <rect fill="currentColor" height="14" width="8" x="126" y="76"></rect>
+            <rect fill="currentColor" height="8" width="14" x="58" y="98"></rect>
+            <rect fill="currentColor" height="14" width="8" x="80" y="98"></rect>
+            <rect fill="currentColor" height="14" width="8" x="100" y="98"></rect>
+            <rect fill="currentColor" height="8" width="8" x="60" y="122"></rect>
+            <rect fill="currentColor" height="14" width="8" x="80" y="118"></rect>
+            <rect fill="currentColor" height="8" width="14" x="100" y="122"></rect>
+            <rect fill="currentColor" height="8" width="14" x="124" y="122"></rect>
+          </svg>
+        </div>
+        <p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">MC-AVE-7892</p>
+        <p class="text-[10px] text-slate-400">Control de equipaje y tornos de embarque</p>
+        <div class="mt-3 flex gap-2">
+          <button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
+            <span class="material-symbols-outlined text-[16px]">wallet</span> Añadir a Wallet
           </button>
-<button class="py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">download</span>
-            PDF
+          <button class="py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">download</span> PDF
           </button>
-</div>
-</div>
-</div>
-<!-- Billete Comprado 2: Abono Transporte Joven -->
-<div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="2">
-<div class="flex items-center justify-between">
-<span class="px-2 py-0.5 rounded-md bg-[#d6001c] text-white text-[10px] font-bold tracking-wider">CRTM DIGITAL</span>
-<span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">En Vigor</span>
-</div>
-<div class="mt-2.5">
-<h3 class="text-sm font-bold text-slate-800 dark:text-white">Abono Transporte Joven 30 Días</h3>
-<p class="text-xs text-slate-500 dark:text-slate-400">Todas las Zonas (A-E2) • Válido hasta 12 Nov</p>
-</div>
-<div class="mt-3 flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/60 p-2 rounded-xl">
-<span class="text-[11px] font-semibold text-slate-400">Nº Tarjeta Multi</span>
-<span class="font-mono font-bold">250 8492 0184</span>
-</div>
-<!-- Detalle Expandido con QR -->
-<div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-2">
-<div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
-<svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
-<rect fill="#d6001c" height="14" width="14" x="73" y="73"></rect>
-<rect fill="currentColor" height="8" width="14" x="50" y="30"></rect>
-<rect fill="currentColor" height="8" width="14" x="50" y="55"></rect>
-<rect fill="currentColor" height="8" width="14" x="90" y="55"></rect>
-<rect fill="currentColor" height="8" width="14" x="65" y="115"></rect>
-<rect fill="currentColor" height="8" width="14" x="95" y="115"></rect>
-</svg>
-</div>
-<p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">CRTM-J-9821</p>
-<p class="text-[10px] text-slate-400">Válido en Metro, EMT, Cercanías e Interurbanos</p>
-<div class="mt-3 flex gap-2">
-<button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
-<span class="material-symbols-outlined text-[16px]">contactless</span>
-            Usar con NFC / Wallet
+        </div>
+      </div>
+    </div>
+
+    <!-- Billete 2: Abono Transporte Joven -->
+    <div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="2">
+      <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-md bg-[#d6001c] text-white text-[10px] font-bold tracking-wider">CRTM DIGITAL</span>
+        <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">En Vigor</span>
+      </div>
+      <div class="mt-2.5">
+        <h3 class="text-sm font-bold text-slate-800 dark:text-white">Abono Transporte Joven 30 Días</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Todas las Zonas (A-E2) • Válido hasta 12 Nov</p>
+      </div>
+      <div class="mt-3 flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/60 p-2 rounded-xl">
+        <span class="text-[11px] font-semibold text-slate-400">Nº Tarjeta Multi</span>
+        <span class="font-mono font-bold">250 8492 0184</span>
+      </div>
+
+      <!-- Detalle Expandido con QR -->
+      <div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-2">
+        <div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
+          <svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
+            <rect fill="#d6001c" height="14" width="14" x="73" y="73"></rect>
+            <rect fill="currentColor" height="8" width="14" x="50" y="30"></rect>
+            <rect fill="currentColor" height="8" width="14" x="50" y="55"></rect>
+            <rect fill="currentColor" height="8" width="14" x="90" y="55"></rect>
+            <rect fill="currentColor" height="8" width="14" x="65" y="115"></rect>
+            <rect fill="currentColor" height="8" width="14" x="95" y="115"></rect>
+          </svg>
+        </div>
+        <p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">CRTM-J-9821</p>
+        <p class="text-[10px] text-slate-400">Válido en Metro, EMT, Cercanías e Interurbanos</p>
+        <div class="mt-3 flex gap-2">
+          <button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
+            <span class="material-symbols-outlined text-[16px]">contactless</span> Usar con NFC / Wallet
           </button>
-</div>
-</div>
-</div>
-<!-- Billete Comprado 3: Iryo Madrid - Valencia -->
-<div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="3">
-<div class="flex items-center justify-between">
-<span class="px-2 py-0.5 rounded-md bg-rose-700 text-white text-[10px] font-bold tracking-wider">iryo</span>
-<span class="text-[11px] font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Próximo</span>
-</div>
-<div class="mt-2.5">
-<h3 class="text-sm font-bold text-slate-800 dark:text-white">Madrid Chamartín ➔ Valencia J. Sorolla</h3>
-<p class="text-xs text-slate-500 dark:text-slate-400">Sábado, 28 Oct • Salida 09:30 (1h 45m)</p>
-</div>
-<div class="mt-3 grid grid-cols-4 gap-1.5 text-center text-xs">
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Coche</span>
-<span class="font-bold text-slate-800 dark:text-slate-200">02</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Asiento</span>
-<span class="font-bold text-slate-800 dark:text-slate-200">12A</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Andén</span>
-<span class="font-bold text-slate-800 dark:text-slate-200">Vía 8</span>
-</div>
-<div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
-<span class="text-[10px] text-slate-400 block font-semibold">Localizador</span>
-<span class="font-bold text-slate-700 dark:text-slate-300 text-[10px]">IR-4402</span>
-</div>
-</div>
-<!-- Detalle Expandido con QR -->
-<div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-3">
-<div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
-<svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
-<rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
-<rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
-<rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
-<rect fill="#be123c" height="16" rx="3" width="16" x="72" y="72"></rect>
-<rect fill="currentColor" height="8" width="12" x="55" y="40"></rect>
-<rect fill="currentColor" height="8" width="12" x="90" y="40"></rect>
-<rect fill="currentColor" height="8" width="12" x="60" y="105"></rect>
-<rect fill="currentColor" height="8" width="12" x="90" y="105"></rect>
-</svg>
-</div>
-<p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">IR-4402</p>
-<p class="text-[10px] text-slate-400">Válido en tornos y control de equipaje</p>
-<div class="mt-3 flex gap-2">
-<button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
-<span class="material-symbols-outlined text-[16px]">wallet</span>
-            Añadir a Wallet
+        </div>
+      </div>
+    </div>
+
+    <!-- Billete 3: Iryo Madrid - Valencia -->
+    <div class="ticket-purchased bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xs border border-slate-200 dark:border-slate-700/80 cursor-pointer transition hover:border-[#d6001c]/40" data-ticket-id="3">
+      <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 rounded-md bg-rose-700 text-white text-[10px] font-bold tracking-wider">iryo</span>
+        <span class="text-[11px] font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Próximo</span>
+      </div>
+      <div class="mt-2.5">
+        <h3 class="text-sm font-bold text-slate-800 dark:text-white">Madrid Chamartín ➔ Valencia J. Sorolla</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Sábado, 28 Oct • Salida 09:30 (1h 45m)</p>
+      </div>
+      <div class="mt-3 grid grid-cols-4 gap-1.5 text-center text-xs">
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Coche</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">02</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Asiento</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">12A</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Andén</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">Vía 8</span>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-700/60 p-1.5 rounded-lg">
+          <span class="text-[10px] text-slate-400 block font-semibold">Localizador</span>
+          <span class="font-bold text-slate-700 dark:text-slate-300 text-[10px]">IR-4402</span>
+        </div>
+      </div>
+
+      <!-- Detalle Expandido con QR -->
+      <div class="ticket-qr-detail hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 text-center" id="qrDetail-3">
+        <div class="p-3 bg-white inline-block rounded-xl shadow-xs border border-slate-200">
+          <svg class="w-36 h-36 text-slate-900" fill="currentColor" viewBox="0 0 160 160">
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="110" y="12"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="116" y="18"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="122" y="24"></rect>
+            <rect fill="currentColor" height="38" rx="4" width="38" x="12" y="110"></rect>
+            <rect fill="#ffffff" height="26" rx="2" width="26" x="18" y="116"></rect>
+            <rect fill="currentColor" height="14" rx="2" width="14" x="24" y="122"></rect>
+            <rect fill="#be123c" height="16" rx="3" width="16" x="72" y="72"></rect>
+            <rect fill="currentColor" height="8" width="12" x="55" y="40"></rect>
+            <rect fill="currentColor" height="8" width="12" x="90" y="40"></rect>
+            <rect fill="currentColor" height="8" width="12" x="60" y="105"></rect>
+            <rect fill="currentColor" height="8" width="12" x="90" y="105"></rect>
+          </svg>
+        </div>
+        <p class="mt-1 text-xs font-mono font-bold tracking-widest text-slate-800 dark:text-slate-200">IR-4402</p>
+        <p class="text-[10px] text-slate-400">Válido en tornos y control de equipaje</p>
+        <div class="mt-3 flex gap-2">
+          <button class="flex-1 py-2 px-3 bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs">
+            <span class="material-symbols-outlined text-[16px]">wallet</span> Añadir a Wallet
           </button>
-<button class="py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[16px]">download</span>
-            PDF
+          <button class="py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">download</span> PDF
           </button>
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </aside>
-<!-- Modal simple confirmación de selección -->
-<div class="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden" id="bookingModal">
-<div class="bg-white dark:bg-slate-800 rounded-2xl p-5 max-w-xs w-full text-center shadow-xl border border-slate-200 dark:border-slate-700">
-<div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
-<span class="material-symbols-outlined text-2xl">check_circle</span>
-</div>
-<h3 class="text-base font-bold text-slate-900 dark:text-white" id="modalTrainName">Tren Seleccionado</h3>
-<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Precio garantizado durante 15 minutos: <span class="font-bold text-slate-800 dark:text-slate-200" id="modalTrainPrice"></span></p>
-<div class="mt-4 flex gap-2">
-<button class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-xl" onclick="closeBookingModal()">Cancelar</button>
-<button class="flex-1 py-2 bg-[#d6001c] text-white text-xs font-semibold rounded-xl" onclick="proceedToPayment()">Continuar</button>
-</div>
-</div>
-</div>
-<!-- 5. MENÚ DE NAVEGACIÓN INFERIOR (Fiel a la imagen de referencia IMAGE_33) -->
+
+<!-- MENÚ DE NAVEGACIÓN INFERIOR -->
 <nav class="fixed bottom-0 w-full z-40 pb-safe bg-[#f1f4f8]/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-[#e2e8f0] dark:border-slate-800 transition-colors">
-<div class="flex justify-between items-center h-16 px-3 max-w-md mx-auto">
-<!-- 1. Inicio (icono brújula) -->
-<a class="flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="PaginaInicio.html">
-<span class="material-symbols-outlined text-[23px]">explore</span>
-<span class="text-[11px] font-medium tracking-tight mt-0.5">Inicio</span>
-<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
-</a>
-<!-- 2. Buscar (icono lupa) -->
-<a class="flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="MenuBusqueda.html">
-<span class="material-symbols-outlined text-[23px]">search</span>
-<span class="text-[11px] font-medium tracking-tight mt-0.5">Buscar</span>
-<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
-</a>
-<!-- 3. Billetes (ACTIVO con texto rojo corporativo y punto indicador rojo #d6001c) -->
-<a aria-current="page" class="flex-1 flex flex-col items-center justify-center h-full text-[#d6001c] font-semibold transition-colors" href="PaginaBilletes.html">
-<span class="material-symbols-outlined text-[23px]">confirmation_number</span>
-<span class="text-[11px] font-bold tracking-tight mt-0.5">Billetes</span>
-<span class="w-1.5 h-1.5 rounded-full bg-[#d6001c] mt-0.5"></span>
-</a>
-<!-- 4. Alertas (icono campana) -->
-<a class="flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="PaginaAvisos.html">
-<span class="material-symbols-outlined text-[23px]">notifications</span>
-<span class="text-[11px] font-medium tracking-tight mt-0.5">Alertas</span>
-<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
-</a>
-<!-- 5. Perfil (con la fotografía del usuario IMAGE_31 en avatar circular pulcro) -->
-<a class="flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="Paginaperfil.html">
-<div class="relative w-6 h-6 rounded-full overflow-hidden border border-slate-300 dark:border-slate-600">
-<img alt="Perfil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VLidserN6DhyhTUsua_xOV1Gkyw3ktYihXc9579V8FfnmaBqSmY-znZu7PBj1O5s0ZSqVYcen9tj-Wdce0UmilQdLAs9dpS08fEiNCStcIvsS9nTczIgiFUNpuPudxDzyg34YrJpvAlclA9YL5aBL6xDZ8Vo33vigDhb4mOTCcA5XSJn5q-Z-o8eRpPfNzR1p56MMED0CUEWr7CdVYxTmlDw0kUexuS6fBxt4bXaQwvyaJDQE5GsBfd_j6">
-</div>
-<span class="text-[11px] font-medium tracking-tight mt-0.5">Perfil</span>
-<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
-</a>
-</div>
+  <div class="flex justify-between items-center h-16 px-3 max-w-md mx-auto">
+    <button data-target="home" onclick="switchTab('home')" class="nav-tab flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+      <span class="material-symbols-outlined text-[23px]">explore</span>
+      <span class="text-[11px] font-medium tracking-tight mt-0.5">Inicio</span>
+      <span class="indicator w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+    </button>
+    <button data-target="search" onclick="switchTab('search')" class="nav-tab flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+      <span class="material-symbols-outlined text-[23px]">search</span>
+      <span class="text-[11px] font-medium tracking-tight mt-0.5">Buscar</span>
+      <span class="indicator w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+    </button>
+    <button data-target="billetes" onclick="switchTab('billetes')" class="nav-tab flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+      <span class="material-symbols-outlined text-[23px]">confirmation_number</span>
+      <span class="text-[11px] font-medium tracking-tight mt-0.5">Billetes</span>
+      <span class="indicator w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+    </button>
+    <button data-target="alertas" onclick="switchTab('alertas')" class="nav-tab flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+      <span class="material-symbols-outlined text-[23px]">notifications</span>
+      <span class="text-[11px] font-medium tracking-tight mt-0.5">Alertas</span>
+      <span class="indicator w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+    </button>
+    <button data-target="profile" onclick="switchTab('profile')" class="nav-tab flex-1 flex flex-col items-center justify-center h-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+      <div class="relative w-6 h-6 rounded-full overflow-hidden border border-slate-300 dark:border-slate-600">
+        <img alt="Perfil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VDk2c0PqEQ5dEtj9VXDtH3Sp0RcIjL_ej5dmH5eSE45g7Cr2CZTxwvggfD0abOi1NXatIwj9fwHgm_OqIOtOMxWswWhrHSPglEVr-MkdD2BjxfqoZB5oc3OG8ZY_cwJK-Phl3GzEABciZ6sDwfQprxCKHIAh8WNAuuf-gND5RjDm7X_bYwP9c7F6g1BgAMR1c_7Sz827G5KGUdKPdEkgBpPaU5CIaCsETNVX4ihmx4M5aRmZB0ZDtgwS-1">
+      </div>
+      <span class="text-[11px] font-medium tracking-tight mt-0.5">Perfil</span>
+      <span class="indicator w-1.5 h-1.5 rounded-full bg-transparent mt-0.5"></span>
+    </button>
+  </div>
 </nav>
-<!-- 6. INTERACTIVIDAD JAVASCRIPT -->
+
+<!-- LÓGICA JAVASCRIPT COMPLETA -->
 <script>
-  // 1. Modo Oscuro
+  // --- 1. MODO OSCURO ---
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = document.getElementById('themeIcon');
   const htmlRoot = document.documentElement;
@@ -666,67 +963,190 @@
     }
   });
 
-  // 2. Filtros por Compañía
-  const filterChips = document.querySelectorAll('.filter-chip');
-  const ticketCards = Array.from(document.querySelectorAll('.ticket-card'));
-  const ticketsContainer = document.getElementById('ticketsList');
+  // --- 2. NAVEGACIÓN ENTRE PESTAÑAS (SPA) ---
+  function switchTab(tabId) {
+    // Ocultar todas las vistas
+    document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
+
+    // Mostrar la vista objetivo
+    const targetView = document.getElementById(`view-${tabId}`);
+    if (targetView) targetView.classList.remove('hidden');
+
+    // Actualizar estilos del menú inferior
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      const isSelected = btn.getAttribute('data-target') === tabId;
+      const indicator = btn.querySelector('.indicator');
+
+      if (isSelected) {
+        btn.classList.remove('text-slate-500', 'dark:text-slate-400');
+        btn.classList.add('text-[#d6001c]', 'font-bold');
+        if (indicator) {
+          indicator.classList.remove('bg-transparent');
+          indicator.classList.add('bg-[#d6001c]');
+        }
+      } else {
+        btn.classList.remove('text-[#d6001c]', 'font-bold');
+        btn.classList.add('text-slate-500', 'dark:text-slate-400');
+        if (indicator) {
+          indicator.classList.remove('bg-[#d6001c]');
+          indicator.classList.add('bg-transparent');
+        }
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // --- 3. ALERTAS: FILTRADO Y DESPLEGABLE ---
+  let currentFilter = 'all';
+  let isExpanded = false;
+
+  const filterChips = document.querySelectorAll('.network-filter-chip');
+  const toggleAlertsBtn = document.getElementById('toggleAlertsBtn');
+  const toggleIcon = document.getElementById('toggleIcon');
+  const toggleText = document.getElementById('toggleText');
+  const additionalAlerts = document.getElementById('additionalAlerts');
+  const activeAlertsBadge = document.getElementById('activeAlertsBadge');
+  const allAlertArticles = Array.from(document.querySelectorAll('.alert-item'));
+
+  function updateVisibleAlerts() {
+    let visibleCount = 0;
+
+    allAlertArticles.forEach(card => {
+      const network = card.getAttribute('data-network');
+      const isInsideAdditional = additionalAlerts.contains(card);
+      const matchesFilter = (currentFilter === 'all' || network === currentFilter);
+
+      if (matchesFilter) {
+        if (!isInsideAdditional) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = isExpanded ? '' : 'none';
+          if (isExpanded) visibleCount++;
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (activeAlertsBadge) {
+      activeAlertsBadge.textContent = `${visibleCount} ${visibleCount === 1 ? 'aviso activo' : 'avisos activos'}`;
+    }
+
+    let remainingHiddenUnderFilter = 0;
+    allAlertArticles.forEach(card => {
+      const network = card.getAttribute('data-network');
+      const isInsideAdditional = additionalAlerts.contains(card);
+      if ((currentFilter === 'all' || network === currentFilter) && isInsideAdditional) {
+        remainingHiddenUnderFilter++;
+      }
+    });
+
+    if (isExpanded) {
+      toggleText.textContent = 'Mostrar menos';
+      toggleIcon.textContent = 'expand_less';
+      toggleAlertsBtn.style.display = remainingHiddenUnderFilter > 0 ? 'flex' : 'none';
+    } else {
+      if (remainingHiddenUnderFilter > 0) {
+        toggleAlertsBtn.style.display = 'flex';
+        toggleText.textContent = `Mostrar más avisos (+${remainingHiddenUnderFilter})`;
+        toggleIcon.textContent = 'expand_more';
+      } else {
+        toggleAlertsBtn.style.display = 'none';
+      }
+    }
+  }
 
   filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
+      currentFilter = chip.getAttribute('data-filter-type');
       filterChips.forEach(c => {
-        c.classList.remove('active', 'bg-[#d6001c]', 'text-white');
-        c.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+        c.classList.remove('bg-[#d6001c]', 'text-white', 'font-bold');
+        c.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700', 'font-medium');
       });
-      chip.classList.add('active', 'bg-[#d6001c]', 'text-white');
-      chip.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
-
-      const selectedFilter = chip.getAttribute('data-filter');
-
-      ticketCards.forEach(card => {
-        const company = card.getAttribute('data-company');
-        if (selectedFilter === 'all' || company === selectedFilter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      chip.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700', 'font-medium');
+      chip.classList.add('bg-[#d6001c]', 'text-white', 'font-bold');
+      updateVisibleAlerts();
     });
   });
 
-  // 3. Ordenación Dinámica en Tiempo Real
+  toggleAlertsBtn.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    additionalAlerts.classList.toggle('hidden', !isExpanded);
+    updateVisibleAlerts();
+  });
+
+  // --- 4. BILLETES: ORDENACIÓN Y FILTRADO DE RESULTADOS ---
   const sortSelect = document.getElementById('sortSelect');
-  sortSelect.addEventListener('change', (e) => {
-    const val = e.target.value;
-    const cards = Array.from(ticketsContainer.querySelectorAll('.ticket-card'));
+  const ticketsList = document.getElementById('ticketsList');
+  const companyChips = document.querySelectorAll('#companyFilters .filter-chip');
+
+  function sortTickets() {
+    if (!ticketsList) return;
+    const cards = Array.from(ticketsList.querySelectorAll('.ticket-card'));
+    const value = sortSelect.value;
 
     cards.sort((a, b) => {
       const priceA = parseFloat(a.getAttribute('data-price'));
       const priceB = parseFloat(b.getAttribute('data-price'));
-      const durA = parseInt(a.getAttribute('data-duration'), 10);
-      const durB = parseInt(b.getAttribute('data-duration'), 10);
+      const durationA = parseInt(a.getAttribute('data-duration'));
+      const durationB = parseInt(b.getAttribute('data-duration'));
       const nameA = a.getAttribute('data-company-name').toLowerCase();
       const nameB = b.getAttribute('data-company-name').toLowerCase();
 
-      switch (val) {
-        case 'price-asc':
-          return priceA - priceB;
-        case 'price-desc':
-          return priceB - priceA;
-        case 'duration-asc':
-          return durA - durB;
-        case 'company-asc':
-          return nameA.localeCompare(nameB);
-        case 'company-desc':
-          return nameB.localeCompare(nameA);
-        default:
-          return 0;
+      switch (value) {
+        case 'price-asc': return priceA - priceB;
+        case 'price-desc': return priceB - priceA;
+        case 'duration-asc': return durationA - durationB;
+        case 'company-asc': return nameA.localeCompare(nameB);
+        case 'company-desc': return nameB.localeCompare(nameA);
+        default: return 0;
       }
     });
 
-    cards.forEach(card => ticketsContainer.appendChild(card));
+    cards.forEach(card => ticketsList.appendChild(card));
+  }
+
+  if (sortSelect) sortSelect.addEventListener('change', sortTickets);
+
+  companyChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      companyChips.forEach(c => {
+        c.classList.remove('bg-[#d6001c]', 'text-white');
+        c.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+      });
+      chip.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+      chip.classList.add('bg-[#d6001c]', 'text-white');
+
+      const filterVal = chip.getAttribute('data-filter');
+      const cards = ticketsList.querySelectorAll('.ticket-card');
+
+      cards.forEach(card => {
+        const company = card.getAttribute('data-company');
+        card.style.display = (filterVal === 'all' || company === filterVal) ? '' : 'none';
+      });
+    });
   });
 
-  // 4. Panel Lateral (Drawer) "Mis Billetes"
+  // Invertir Trayecto (Swap)
+  const swapRouteBtn = document.getElementById('swapRouteBtn');
+  const routeOrigin = document.getElementById('routeOrigin');
+  const routeDest = document.getElementById('routeDest');
+
+  if (swapRouteBtn) {
+    swapRouteBtn.addEventListener('click', () => {
+      const temp = routeOrigin.textContent;
+      routeOrigin.textContent = routeDest.textContent;
+      routeDest.textContent = temp;
+    });
+  }
+
+  function selectTicket(train, price) {
+    alert(`Has seleccionado el billete para ${train} por ${price}.`);
+  }
+
+  // --- 5. PANEL LATERAL / DRAWER ("MIS BILLETES") ---
   const openMyTicketsBtn = document.getElementById('openMyTicketsBtn');
   const closeDrawerBtn = document.getElementById('closeDrawerBtn');
   const drawerBackdrop = document.getElementById('drawerBackdrop');
@@ -744,55 +1164,26 @@
     ticketsDrawer.classList.add('translate-x-full');
   }
 
-  openMyTicketsBtn.addEventListener('click', openDrawer);
-  closeDrawerBtn.addEventListener('click', closeDrawer);
-  drawerBackdrop.addEventListener('click', closeDrawer);
+  if (openMyTicketsBtn) openMyTicketsBtn.addEventListener('click', openDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
 
-  // 5. Expandir QR de Billetes en el Drawer
-  const purchasedTickets = document.querySelectorAll('.ticket-purchased');
-  purchasedTickets.forEach(ticket => {
+  // Expandir Códigos QR
+  document.querySelectorAll('.ticket-purchased').forEach(ticket => {
     ticket.addEventListener('click', (e) => {
-      // Ignorar clicks en botones de Wallet/PDF para no cerrar el acordeón
       if (e.target.closest('button')) return;
-      
-      const ticketId = ticket.getAttribute('data-ticket-id');
+      const ticketId = ticket.getAttribute('data-[#d6001c]') || ticket.getAttribute('data-ticket-id');
       const detailEl = document.getElementById(`qrDetail-${ticketId}`);
-      
-      // Cerrar otros detalles
       document.querySelectorAll('.ticket-qr-detail').forEach(d => {
         if (d !== detailEl) d.classList.add('hidden');
       });
-
-      // Conmutar este detalle
-      if (detailEl) {
-        detailEl.classList.toggle('hidden');
-      }
+      if (detailEl) detailEl.classList.toggle('hidden');
     });
   });
 
-  // 6. Invertir Trayecto (Swap)
-  const swapBtn = document.getElementById('swapRouteBtn');
-  if (swapBtn) {
-    swapBtn.addEventListener('click', () => {
-      swapBtn.classList.toggle('rotate-180');
-      // efecto de giro feedback
-    });
-  }
-
-  // 7. Modal de selección de billete
-  function openBookingSuccess(train, price) {
-    document.getElementById('modalTrainName').textContent = train;
-    document.getElementById('modalTrainPrice').textContent = price;
-    document.getElementById('bookingModal').classList.remove('hidden');
-  }
-
-  function closeBookingModal() {
-    document.getElementById('bookingModal').classList.add('hidden');
-  }
-
-  function proceedToPayment() {
-    closeBookingModal();
-    openDrawer();
-  }
+  // Inicialización
+  switchTab('alertas');
+  updateVisibleAlerts();
 </script>
-</body></html>
+</body>
+</html>
