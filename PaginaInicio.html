@@ -1,0 +1,598 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<meta content="mobile_tab" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#eaedff",
+            "surface-dim": "#d2d9f4",
+            "surface-container-high": "#e2e7ff",
+            "on-secondary": "#ffffff",
+            "surface": "#f4f6f8",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-background": "#1e293b",
+            "background": "#f1f5f9",
+            "primary": "#b3152d",
+            "primary-dark": "#d63342",
+            "slate-soft": "#e2e8f0"
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 0.2; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .pulse-ring-active {
+      animation: pulse-ring 1.6s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    }
+  </style>
+</head>
+<body class="font-sans bg-[#f1f5f9] dark:bg-[#0f172a] text-slate-800 dark:text-slate-100 flex flex-col min-h-screen antialiased transition-colors duration-300">
+<!-- CABECERA LIMPIA: Sin 98% Operativo, con Logo y Botón Modo Oscuro -->
+<header class="fixed top-0 inset-x-0 z-40 bg-[#f8fafc]/90 dark:bg-[#1e293b]/90 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/80 pt-safe transition-colors duration-300">
+<div class="h-14 px-4 flex items-center justify-between max-w-lg mx-auto w-full">
+<div class="flex items-center gap-2">
+<img alt="Madrid Conecta Consorcio Transportes" class="h-7 w-auto object-contain dark:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1Xgbfz57IbMba5yM3iSCkFTQBX7zI7gJAKcozOrpJOIi-2WnOt6pcctI4JkiIaGXwzMbIKcX_KeG9HP7x13dj4A1-Ft6YQWMNXOwixLyiUqz6Nira5XM8Ad_W8ZS4RnZPTSf_aruu_WMR3r8JNVMiUm5JLHWdrwmnUBHE17ksyh6ZcE3FrCpqU4yAZUNa9-8FHwBz_RzIq0qplzz2lv5QP1DKwkDWYz50mESMVQnFxqLQs-XHlQb5KV-qsL">
+</div>
+<div class="flex items-center gap-2">
+<!-- Botón de Modo Oscuro / Claro interactivo -->
+<button aria-label="Cambiar tema" class="w-9 h-9 rounded-full bg-slate-200/70 dark:bg-slate-700/80 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-amber-400 transition-all active:scale-95 shadow-xs" id="theme-toggle" type="button">
+<span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[20px] hidden dark:inline-block">light_mode</span>
+</button>
+</div>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 flex flex-col pt-16 pb-28 px-4 max-w-lg mx-auto w-full gap-5">
+<!-- SALUDO Y BUSCADOR INTERACTIVO EN TIEMPO REAL -->
+<section class="mt-2 flex flex-col gap-3">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">¿A dónde vas, Javier?</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[15px] text-[#b3152d]">near_me</span>
+        En Sol / Gran Vía, Madrid
+      </p>
+</div>
+<!-- Barra de Búsqueda Intuitiva con filtrado JS -->
+
+<!-- Tarjeta Dinámica de Ruta Calculada (Aparece al seleccionar o buscar destino) -->
+
+</section>
+<!-- TARJETA INTERACTIVA DE ABONO / BILLETE DIGITAL EXPANDIBLE -->
+<section class="flex flex-col">
+<div class="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 dark:from-slate-900 dark:to-slate-950 text-white rounded-2xl p-4 shadow-sm border border-slate-700/60 cursor-pointer select-none transition-all duration-300" id="transit-card">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#b3152d] flex items-center justify-center text-white shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[22px]">contactless</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-bold tracking-tight">Tarjeta Transporte Digital</span>
+<span class="text-[10px] bg-white/20 text-white px-1.5 py-0.5 rounded font-mono">Zona A</span>
+</div>
+<span class="text-xs text-slate-300">Abono Joven 30 días • <strong>18 días restantes</strong></span>
+</div>
+</div>
+<div class="text-slate-400 transition-transform duration-300" id="card-chevron">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Contenido Expandible NFC -->
+<div class="hidden mt-4 pt-3 border-t border-slate-700/60 flex-col gap-3" id="transit-card-expanded">
+<div class="flex items-center justify-between text-xs text-slate-300">
+<span class="">Válido hasta: <strong class="text-white">12 Nov 2025</strong></span>
+<span class="">ID: <strong class="text-white">***8921-CRTM</strong></span>
+</div>
+<!-- Botón NFC Interactivo -->
+<div class="flex items-center justify-center py-2 relative">
+<div class="absolute w-12 h-12 rounded-full bg-[#b3152d]/40 pointer-events-none opacity-0" id="nfc-pulse-circle"></div>
+<button class="relative z-10 flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#b3152d] hover:bg-red-700 text-white font-semibold text-xs shadow active:scale-95 transition-all" id="btn-nfc-tap" type="button">
+<span class="material-symbols-outlined text-[18px]">tap_and_play</span>
+<span id="nfc-status-label" class="">Validar en Torno (Acercar Móvil)</span>
+</button>
+</div>
+<div class="text-center text-[11px] text-slate-400">
+          NFC activo para Metro de Madrid, EMT y Cercanías Renfe.
+        </div>
+</div>
+</div>
+</section>
+<!-- PRIORIZACIÓN DE LÍNEAS (1. FAVORITAS PRIMERO, 2. MÁS FRECUENTES) -->
+<section class="flex flex-col gap-4" id="section-lines">
+<!-- 3.A: MIS LÍNEAS FAVORITAS (Con Estrella Dorada Activa e Interactiva) -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-500 text-[19px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<h2 class="text-sm font-bold text-slate-900 dark:text-white tracking-tight">Mis Líneas Favoritas</h2>
+</div>
+<span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium" id="fav-count">3 guardadas</span>
+</div>
+<div class="flex flex-col gap-2" id="favorites-container">
+<!-- Favorito 1: Metro L1 -->
+<div class="line-card bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-xs flex items-center justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-route="Pinar de Chamartín — Valdecarros" data-title="Metro Línea 1">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#009bd8] text-white flex items-center justify-center font-bold text-sm shadow-xs shrink-0">
+              1
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Metro Línea 1</span>
+<span class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded">En vivo</span>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Pinar de Chamartín — Valdecarros</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<span class="text-base font-bold text-[#b3152d] dark:text-[#ffb3b2] font-mono tracking-tight">2 min</span>
+<span class="block text-[10px] text-slate-400 dark:text-slate-500">sig. 5 min</span>
+</div>
+<!-- Botón Favorito Interactivo -->
+<button aria-label="Favorito" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/40 active:scale-90 transition-transform" data-favorited="true" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+</div>
+<!-- Favorito 2: Cercanías C-3 -->
+<div class="line-card bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-xs flex items-center justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-route="Aranjuez — Chamartín" data-title="Cercanías C-3">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#8b2332] text-white flex items-center justify-center font-bold text-xs tracking-tight shadow-xs shrink-0">
+              C3
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Cercanías C-3</span>
+<span class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded">En vivo</span>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aranjuez — Chamartín</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<span class="text-base font-bold text-slate-900 dark:text-slate-100 font-mono tracking-tight">4 min</span>
+<span class="block text-[10px] text-emerald-600 dark:text-emerald-400">En andén</span>
+</div>
+<!-- Botón Favorito Interactivo -->
+<button aria-label="Favorito" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/40 active:scale-90 transition-transform" data-favorited="true" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+</div>
+<!-- Favorito 3: Bus EMT 27 -->
+<div class="line-card bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-xs flex items-center justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all" data-route="Embajadores — Pza. Castilla" data-title="Bus EMT Línea 27">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#0072ce] text-white flex items-center justify-center font-bold text-xs tracking-tight shadow-xs shrink-0">
+              27
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">Bus EMT 27</span>
+<span class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded">En vivo</span>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Embajadores — Pza. Castilla</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<span class="text-base font-bold text-[#b3152d] dark:text-[#ffb3b2] font-mono tracking-tight">3 min</span>
+<span class="block text-[10px] text-slate-400 dark:text-slate-500">sig. 8 min</span>
+</div>
+<!-- Botón Favorito Interactivo -->
+<button aria-label="Favorito" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/40 active:scale-90 transition-transform" data-favorited="true" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3.B: LÍNEAS MÁS FRECUENTES / REVISADAS -->
+<div class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[18px]">history</span>
+<h2 class="text-sm font-bold text-slate-900 dark:text-white tracking-tight">Líneas Más Frecuentes</h2>
+</div>
+<span class="text-[11px] text-slate-400 dark:text-slate-500 font-medium">Revisadas recientemente</span>
+</div>
+<div class="flex flex-col gap-2" id="frequent-container">
+<!-- Frecuente 1: Metro L6 Circular -->
+<div class="line-card bg-white/80 dark:bg-slate-800/80 p-3 rounded-2xl border border-slate-200/70 dark:border-slate-700/60 flex items-center justify-between hover:bg-white dark:hover:bg-slate-800 transition-all" data-route="Circular Andén 1 / Andén 2" data-title="Metro Línea 6 Circular">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-[#8c9195] text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
+              6
+            </div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-900 dark:text-slate-100">Metro Línea 6</span>
+<span class="text-[11px] text-slate-500 dark:text-slate-400">Circular • Cuatro Caminos / Legazpi</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/80 px-2 py-1 rounded-lg">Frec. 4 min</span>
+<button aria-label="Añadir a favoritos" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-slate-300 dark:text-slate-600 hover:text-amber-500 dark:hover:text-amber-400 active:scale-90 transition-transform" data-favorited="false" type="button">
+<span class="material-symbols-outlined text-[19px]">star</span>
+</button>
+</div>
+</div>
+<!-- Frecuente 2: Metro Línea 10 -->
+<div class="line-card bg-white/80 dark:bg-slate-800/80 p-3 rounded-2xl border border-slate-200/70 dark:border-slate-700/60 flex items-center justify-between hover:bg-white dark:hover:bg-slate-800 transition-all" data-route="Hospital Infanta Sofía — Puerta del Sur" data-title="Metro Línea 10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-[#002f6c] text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
+              10
+            </div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-900 dark:text-slate-100">Metro Línea 10</span>
+<span class="text-[11px] text-slate-500 dark:text-slate-400">Hospital Infanta Sofía — Puerta del Sur</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/80 px-2 py-1 rounded-lg">Frec. 5 min</span>
+<button aria-label="Añadir a favoritos" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-slate-300 dark:text-slate-600 hover:text-amber-500 dark:hover:text-amber-400 active:scale-90 transition-transform" data-favorited="false" type="button">
+<span class="material-symbols-outlined text-[19px]">star</span>
+</button>
+</div>
+</div>
+<!-- Frecuente 3: Bus Exprés Aeropuerto 203 -->
+<div class="line-card bg-white/80 dark:bg-slate-800/80 p-3 rounded-2xl border border-slate-200/70 dark:border-slate-700/60 flex items-center justify-between hover:bg-white dark:hover:bg-slate-800 transition-all" data-route="Atocha — Aeropuerto T1-T2-T4" data-title="Bus Exprés Aeropuerto Línea 203">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-[#e3001b] text-white flex items-center justify-center font-bold text-[10px] tracking-tight shadow-xs shrink-0">
+              203
+            </div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-900 dark:text-slate-100">Exprés Aeropuerto</span>
+<span class="text-[11px] text-slate-500 dark:text-slate-400">Atocha — Aeropuerto T1-T2-T4</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 px-2 py-1 rounded-lg">24h Servicio</span>
+<button aria-label="Añadir a favoritos" class="star-toggle w-8 h-8 rounded-full flex items-center justify-center text-slate-300 dark:text-slate-600 hover:text-amber-500 dark:hover:text-amber-400 active:scale-90 transition-transform" data-favorited="false" type="button">
+<span class="material-symbols-outlined text-[19px]">star</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Mensaje cuando la búsqueda no coincide -->
+<div class="hidden text-center py-6 text-slate-400 text-xs font-medium" id="no-search-results">
+      No se encontraron líneas o estaciones con ese término.
+    </div>
+</section>
+</main>
+<!-- MODAL / TOAST DE PERFIL DE USUARIO AL PULSAR EL AVATAR EN LA BARRA -->
+<div class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-end justify-center hidden opacity-0 transition-opacity duration-200" id="profile-modal">
+<div class="bg-white dark:bg-slate-800 rounded-t-3xl w-full max-w-lg p-5 pb-safe flex flex-col gap-4 shadow-2xl transform translate-y-full transition-transform duration-300" id="profile-modal-content">
+<div class="w-10 h-1 bg-slate-300 dark:bg-slate-600 rounded-full mx-auto"></div>
+<div class="flex items-center gap-3.5">
+<img alt="Foto Javier" class="w-14 h-14 rounded-full object-cover ring-2 ring-[#b3152d]" src="https://lh3.googleusercontent.com/aida/AEtjO1VLidserN6DhyhTUsua_xOV1Gkyw3ktYihXc9579V8FfnmaBqSmY-znZu7PBj1O5s0ZSqVYcen9tj-Wdce0UmilQdLAs9dpS08fEiNCStcIvsS9nTczIgiFUNpuPudxDzyg34YrJpvAlclA9YL5aBL6xDZ8Vo33vigDhb4mOTCcA5XSJn5q-Z-o8eRpPfNzR1p56MMED0CUEWr7CdVYxTmlDw0kUexuS6fBxt4bXaQwvyaJDQE5GsBfd_j6">
+<div class="flex flex-col">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Javier Gómez</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Abono Transporte Joven • Zona A</p>
+<span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">● Perfil activo y sincronizado</span>
+</div>
+<button class="ml-auto w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-200 hover:bg-slate-200" id="btn-close-profile" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200/60 dark:border-slate-700">
+<span class="text-slate-400 dark:text-slate-400 block text-[10px]">Viajes este mes</span>
+<strong class="text-base text-slate-800 dark:text-slate-100">42 viajes</strong>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200/60 dark:border-slate-700">
+<span class="text-slate-400 dark:text-slate-400 block text-[10px]">CO2 ahorrado</span>
+<strong class="text-base text-emerald-600 dark:text-emerald-400">18.4 kg</strong>
+</div>
+</div>
+<button class="w-full py-2.5 bg-slate-900 dark:bg-slate-700 text-white rounded-xl font-semibold text-xs mt-1 hover:bg-slate-800" id="btn-profile-confirm" type="button">
+      Cerrar
+    </button>
+</div>
+</div>
+<!-- NAVEGACIÓN INFERIOR EXACTA:
+     1. Inicio (activo)
+     2. Búsqueda (lupa)
+     3. Billetes (ticket/código QR)
+     4. Alertas / Estado (campana)
+     5. Foto de perfil del usuario (avatar circular interactivo)
+-->
+<nav class="fixed bottom-0 inset-x-0 z-40 bg-[#f8fafc]/95 dark:bg-[#1e293b]/95 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 pb-safe transition-colors duration-300">
+<div class="flex justify-around items-center h-14 max-w-lg mx-auto px-2">
+<!-- 1. Inicio (Activo) -->
+<a class="nav-tab active flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-[#b3152d]" data-tab="inicio" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold tracking-tight">Inicio</span>
+</a>
+<!-- 2. Búsqueda (Lupa) -->
+<a class="nav-tab flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" data-tab="busqueda" href="#" id="btn-nav-search">
+<span class="material-symbols-outlined text-[22px]">search</span>
+<span class="text-[10px] font-medium tracking-tight">Buscar</span>
+</a>
+<!-- 3. Billetes (Ticket / Código QR) -->
+<a class="nav-tab flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" data-tab="billetes" href="#">
+<span class="material-symbols-outlined text-[22px]">confirmation_number</span>
+<span class="text-[10px] font-medium tracking-tight">Billetes</span>
+</a>
+<!-- 4. Alertas / Estado (Campana) -->
+<a class="nav-tab flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" data-tab="alertas" href="#">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="text-[10px] font-medium tracking-tight">Alertas</span>
+</a>
+<!-- 5. Foto de perfil del usuario (Avatar circular interactivo) -->
+<button aria-label="Abrir Perfil" class="flex flex-col items-center justify-center flex-1 h-full gap-0.5 text-slate-400 dark:text-slate-500 group active:scale-95 transition-transform" id="btn-bottom-profile" type="button">
+<div class="relative w-6 h-6 rounded-full overflow-hidden ring-1.5 ring-slate-300 dark:ring-slate-600 group-hover:ring-[#b3152d]">
+<img alt="Perfil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VLidserN6DhyhTUsua_xOV1Gkyw3ktYihXc9579V8FfnmaBqSmY-znZu7PBj1O5s0ZSqVYcen9tj-Wdce0UmilQdLAs9dpS08fEiNCStcIvsS9nTczIgiFUNpuPudxDzyg34YrJpvAlclA9YL5aBL6xDZ8Vo33vigDhb4mOTCcA5XSJn5q-Z-o8eRpPfNzR1p56MMED0CUEWr7CdVYxTmlDw0kUexuS6fBxt4bXaQwvyaJDQE5GsBfd_j6">
+</div>
+<span class="text-[10px] font-medium tracking-tight group-hover:text-slate-700 dark:group-hover:text-slate-200">Perfil</span>
+</button>
+</div>
+</nav>
+<!-- JAVASCRIPT CON INTERACTIVIDAD COMPLETA -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. MODO OSCURO / CLARO
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElem = document.documentElement;
+
+    // Verificar preferencia guardada o sistema
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (currentTheme === 'dark') {
+      htmlElem.classList.add('dark');
+      htmlElem.classList.remove('light');
+    } else {
+      htmlElem.classList.remove('dark');
+      htmlElem.classList.add('light');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElem.classList.contains('dark')) {
+        htmlElem.classList.remove('dark');
+        htmlElem.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElem.classList.add('dark');
+        htmlElem.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // 2. BUSCADOR INTERACTIVO EN TIEMPO REAL
+    const searchInput = document.getElementById('input-search');
+    const btnClearSearch = document.getElementById('btn-clear-search');
+    const routeCard = document.getElementById('route-result-card');
+    const routeDestText = document.getElementById('route-dest-text');
+    const lineCards = document.querySelectorAll('.line-card');
+    const noResultsMsg = document.getElementById('no-search-results');
+    const quickChips = document.querySelectorAll('.quick-dest-chip');
+
+    function filterLines(query) {
+      const q = query.toLowerCase().trim();
+      let matches = 0;
+
+      lineCards.forEach(card => {
+        const title = card.getAttribute('data-title')?.toLowerCase() || '';
+        const route = card.getAttribute('data-route')?.toLowerCase() || '';
+        if (q === '' || title.includes(q) || route.includes(q)) {
+          card.style.display = 'flex';
+          matches++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (matches === 0 && q !== '') {
+        noResultsMsg.classList.remove('hidden');
+      } else {
+        noResultsMsg.classList.add('hidden');
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (val.trim().length > 0) {
+        btnClearSearch.classList.remove('hidden');
+        routeDestText.textContent = val;
+        routeCard.classList.remove('hidden');
+      } else {
+        btnClearSearch.classList.add('hidden');
+        routeCard.classList.add('hidden');
+      }
+      filterLines(val);
+    });
+
+    btnClearSearch.addEventListener('click', () => {
+      searchInput.value = '';
+      btnClearSearch.classList.add('hidden');
+      routeCard.classList.add('hidden');
+      filterLines('');
+      searchInput.focus();
+    });
+
+    // Botones rápidos de destino
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const dest = chip.getAttribute('data-dest');
+        searchInput.value = dest;
+        routeDestText.textContent = dest;
+        routeCard.classList.remove('hidden');
+        btnClearSearch.classList.remove('hidden');
+        filterLines(dest.split(' ')[0]);
+      });
+    });
+
+    // 3. TARJETA TRANSPORTE DIGITAL EXPANDIBLE & NFC
+    const transitCard = document.getElementById('transit-card');
+    const cardExpanded = document.getElementById('transit-card-expanded');
+    const cardChevron = document.getElementById('card-chevron');
+    const btnNfc = document.getElementById('btn-nfc-tap');
+    const nfcPulse = document.getElementById('nfc-pulse-circle');
+    const nfcLabel = document.getElementById('nfc-status-label');
+
+    transitCard.addEventListener('click', (e) => {
+      if (e.target.closest('#btn-nfc-tap')) return;
+      const isHidden = cardExpanded.classList.contains('hidden');
+      if (isHidden) {
+        cardExpanded.classList.remove('hidden');
+        cardChevron.style.transform = 'rotate(180deg)';
+      } else {
+        cardExpanded.classList.add('hidden');
+        cardChevron.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    if (btnNfc) {
+      btnNfc.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nfcPulse.classList.remove('opacity-0');
+        nfcPulse.classList.add('pulse-ring-active');
+        nfcLabel.textContent = 'Validando con torno...';
+        btnNfc.classList.remove('bg-[#b3152d]');
+        btnNfc.classList.add('bg-emerald-600');
+
+        setTimeout(() => {
+          nfcPulse.classList.remove('pulse-ring-active');
+          nfcPulse.classList.add('opacity-0');
+          nfcLabel.textContent = '✓ Billete Validado (Metro Sol)';
+          setTimeout(() => {
+            nfcLabel.textContent = 'Validar en Torno (Acercar Móvil)';
+            btnNfc.classList.remove('bg-emerald-600');
+            btnNfc.classList.add('bg-[#b3152d]');
+          }, 2600);
+        }, 1200);
+      });
+    }
+
+    // 4. INTERACTIVIDAD DE FAVORITOS (ESTRELLAS DORADAS)
+    const starButtons = document.querySelectorAll('.star-toggle');
+    const favCountElem = document.getElementById('fav-count');
+
+    function updateFavCount() {
+      const totalFavs = document.querySelectorAll('.star-toggle[data-favorited="true"]').length;
+      if (favCountElem) {
+        favCountElem.textContent = `${totalFavs} guardada${totalFavs === 1 ? '' : 's'}`;
+      }
+    }
+
+    starButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isFav = btn.getAttribute('data-favorited') === 'true';
+        const icon = btn.querySelector('.material-symbols-outlined');
+
+        if (isFav) {
+          // Desmarcar favorito
+          btn.setAttribute('data-favorited', 'false');
+          btn.className = 'star-toggle w-8 h-8 rounded-full flex items-center justify-center text-slate-300 dark:text-slate-600 hover:text-amber-500 dark:hover:text-amber-400 active:scale-90 transition-transform';
+          icon.style.fontVariationSettings = "'FILL' 0";
+        } else {
+          // Marcar como favorito
+          btn.setAttribute('data-favorited', 'true');
+          btn.className = 'star-toggle w-8 h-8 rounded-full flex items-center justify-center text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/40 active:scale-90 transition-transform';
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+        updateFavCount();
+      });
+    });
+
+    // 5. MODAL / TOAST DE PERFIL
+    const profileBtn = document.getElementById('btn-bottom-profile');
+    const profileModal = document.getElementById('profile-modal');
+    const profileModalContent = document.getElementById('profile-modal-content');
+    const btnCloseProfile = document.getElementById('btn-close-profile');
+    const btnProfileConfirm = document.getElementById('btn-profile-confirm');
+
+    function openProfileModal() {
+      profileModal.classList.remove('hidden');
+      setTimeout(() => {
+        profileModal.classList.remove('opacity-0');
+        profileModalContent.classList.remove('translate-y-full');
+      }, 10);
+    }
+
+    function closeProfileModal() {
+      profileModalContent.classList.add('translate-y-full');
+      profileModal.classList.add('opacity-0');
+      setTimeout(() => {
+        profileModal.classList.add('hidden');
+      }, 300);
+    }
+
+    profileBtn.addEventListener('click', openProfileModal);
+    btnCloseProfile.addEventListener('click', closeProfileModal);
+    btnProfileConfirm.addEventListener('click', closeProfileModal);
+    profileModal.addEventListener('click', (e) => {
+      if (e.target === profileModal) closeProfileModal();
+    });
+
+    // 6. ACCIÓN DE NAVEGACIÓN SEARCH TAB
+    const navSearchBtn = document.getElementById('btn-nav-search');
+    navSearchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Pestañas inferiores con feedback visual
+    const navTabs = document.querySelectorAll('.nav-tab');
+    navTabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        navTabs.forEach(t => {
+          t.classList.remove('text-[#b3152d]');
+          t.classList.add('text-slate-400', 'dark:text-slate-500');
+          const icon = t.querySelector('.material-symbols-outlined');
+          if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+          const label = t.querySelector('span:last-child');
+          if (label) {
+            label.classList.remove('font-bold');
+            label.classList.add('font-medium');
+          }
+        });
+
+        tab.classList.remove('text-slate-400', 'dark:text-slate-500');
+        tab.classList.add('text-[#b3152d]');
+        const activeIcon = tab.querySelector('.material-symbols-outlined');
+        if (activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+        const activeLabel = tab.querySelector('span:last-child');
+        if (activeLabel) {
+          activeLabel.classList.remove('font-medium');
+          activeLabel.classList.add('font-bold');
+        }
+      });
+    });
+  });
+</script>
+
+
+</body></html>
