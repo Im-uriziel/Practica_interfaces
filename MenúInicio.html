@@ -539,29 +539,29 @@
 <!-- Persistent Bottom Navigation Bar -->
 <nav class="fixed bottom-0 left-0 right-0 max-w-[393px] mx-auto bg-white/95 backdrop-blur-md border-t border-neutral-200/80 px-4 py-2.5 flex items-center justify-around z-50">
 <!-- Inicio (Active) -->
-<button class="flex flex-col items-center gap-1 text-[#D6001C]">
+<button class="flex flex-col items-center gap-1 text-[#D6001C]" onclick="navigateTo('PaginaInicio.html')" type="button">
 <div class="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center">
 <i class="fa-solid fa-compass text-sm"></i>
 </div>
 <span class="text-[10px] font-bold">Inicio</span>
 </button>
 <!-- Buscar -->
-<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700" onclick="navigateTo('MenuBusqueda.html')" type="button">
 <i class="fa-solid fa-magnifying-glass text-sm"></i>
 <span class="text-[10px] font-semibold">Buscar</span>
 </button>
 <!-- Billetes -->
-<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700" onclick="navigateTo('PaginaBilletes.html')" type="button">
 <i class="fa-solid fa-ticket text-sm"></i>
 <span class="text-[10px] font-semibold">Billetes</span>
 </button>
 <!-- Alertas -->
-<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700" onclick="navigateTo('PaginaAvisos.html')" type="button">
 <i class="fa-regular fa-bell text-sm"></i>
 <span class="text-[10px] font-semibold">Alertas</span>
 </button>
 <!-- Perfil Avatar -->
-<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700">
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-neutral-700" onclick="navigateTo('Paginaperfil.html')" type="button">
 <div class="w-6 h-6 rounded-full overflow-hidden ring-1 ring-neutral-300" id="navAvatarWrapper">
 <img alt="Perfil" class="w-full h-full object-cover" id="navAvatarImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBitDpuM5YvJs3bRF7VolyqZyqr614Yh38K-yQ79ndYL6vEqPVRPx_9r23oL2sSO34Lx9lJXj0PysMGHaQY87NdtfFyoki3pFWZSRuONo763yNcmycNOjch-10MHOiP7O0v4A4JdHO0M0wGf4eFUr1CSJBh7F-1jEK6z7RbC3TvQpnRWsUYCLNLmC7mtiNByc3cjMU-HrXaw2ED_H3ae5bDAuZeyUFRgJLpspKMakLY7NdFpUI7uAB13A">
 </div>
@@ -573,6 +573,12 @@
 <!-- SCRIPT FOR ANIMATIONS AND CIRCULAR TRANSITIONS -->
 <script>
     let isTransitioning = false;
+
+    // Navigate to another prototype page (same folder).
+    // Change the file names below if your real files are named differently.
+    function navigateTo(fileName) {
+      window.location.href = fileName;
+    }
 
     // Toggle password visibility
     function togglePasswordVisibility() {
